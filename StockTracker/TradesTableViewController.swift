@@ -9,6 +9,10 @@ import UIKit
 
 class TradesTableViewController: UITableViewController {
 
+    @IBAction func addTrade(_ sender: Any) {
+        performSegue(withIdentifier: "addTradeSegue", sender: self)
+    }
+    
     var trades = ["Trade 1", "Trade 2", "Trade 3"]
     
     override func viewDidLoad() {

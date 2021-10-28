@@ -9,6 +9,10 @@ import UIKit
 
 class ShowAccountViewController: UIViewController {
 
+    @IBAction func editAccount(_ sender: Any) {
+        performSegue(withIdentifier: "editAccountSegue", sender: self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

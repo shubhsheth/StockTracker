@@ -9,6 +9,10 @@ import UIKit
 
 class ShowTradeViewController: UIViewController {
 
+    @IBAction func editTrade(_ sender: Any) {
+        performSegue(withIdentifier: "editTradeSegue", sender: self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

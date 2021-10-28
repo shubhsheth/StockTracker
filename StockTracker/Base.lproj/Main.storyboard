@@ -22,25 +22,21 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ggE-Yj-9KT">
-                                <rect key="frame" x="16" y="183" width="382" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="rsC-pO-33K"/>
                         <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="ggE-Yj-9KT" firstAttribute="top" secondItem="8yB-kW-dHa" secondAttribute="bottom" constant="16" id="1LF-by-Kdd"/>
-                            <constraint firstItem="ggE-Yj-9KT" firstAttribute="leading" secondItem="rsC-pO-33K" secondAttribute="leading" constant="16" id="2Mi-qY-DHg"/>
                             <constraint firstItem="8yB-kW-dHa" firstAttribute="leading" secondItem="rsC-pO-33K" secondAttribute="leading" constant="16" id="8xM-bo-a6A"/>
-                            <constraint firstItem="rsC-pO-33K" firstAttribute="trailing" secondItem="ggE-Yj-9KT" secondAttribute="trailing" constant="16" id="BWm-2Y-nRY"/>
                             <constraint firstItem="8yB-kW-dHa" firstAttribute="top" secondItem="rsC-pO-33K" secondAttribute="top" constant="45" id="XCc-oE-FhN"/>
                             <constraint firstItem="rsC-pO-33K" firstAttribute="trailing" secondItem="8yB-kW-dHa" secondAttribute="trailing" constant="16" id="dfs-Gj-m0o"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qNj-x1-vai">
-                        <barButtonItem key="rightBarButtonItem" title="Edit" id="7L4-Vm-am8"/>
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="7L4-Vm-am8">
+                            <connections>
+                                <action selector="editAccount:" destination="Ruz-2V-pdg" id="DtA-GI-7se"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="xtR-dR-02p" kind="show" identifier="editAccountSegue" id="Bvt-w0-x0h"/>
@@ -58,19 +54,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="add Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QhV-Gf-nCa">
-                                <rect key="frame" x="69" y="219" width="189" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create/Update Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tab-JO-hHB">
+                                <rect key="frame" x="16" y="133" width="382" height="34"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Account Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SDC-6B-t1J">
+                                <rect key="frame" x="16" y="199" width="382" height="34"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8zQ-d9-vnk">
+                                <rect key="frame" x="0.0" y="278" width="414" height="40"/>
+                                <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="YLn-eM-lAw"/>
+                                </constraints>
+                                <state key="normal" title="Delete Account">
+                                    <color key="titleColor" systemColor="systemRedColor"/>
+                                </state>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="rS7-Au-8im"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="8zQ-d9-vnk" firstAttribute="leading" secondItem="rS7-Au-8im" secondAttribute="leading" id="34J-lf-XUB"/>
+                            <constraint firstItem="rS7-Au-8im" firstAttribute="trailing" secondItem="tab-JO-hHB" secondAttribute="trailing" constant="16" id="3AG-ti-Ie2"/>
+                            <constraint firstItem="tab-JO-hHB" firstAttribute="leading" secondItem="Jfc-PD-ABc" secondAttribute="leading" constant="16" id="6xb-BJ-C9J"/>
+                            <constraint firstItem="tab-JO-hHB" firstAttribute="top" secondItem="rS7-Au-8im" secondAttribute="top" constant="45" id="9jA-zt-fDs"/>
+                            <constraint firstItem="SDC-6B-t1J" firstAttribute="leading" secondItem="rS7-Au-8im" secondAttribute="leading" constant="16" id="COx-Es-k8S"/>
+                            <constraint firstItem="8zQ-d9-vnk" firstAttribute="top" secondItem="SDC-6B-t1J" secondAttribute="bottom" constant="45" id="SSW-Ve-qOO"/>
+                            <constraint firstItem="rS7-Au-8im" firstAttribute="trailing" secondItem="SDC-6B-t1J" secondAttribute="trailing" constant="16" id="WWt-uk-gWG"/>
+                            <constraint firstItem="rS7-Au-8im" firstAttribute="trailing" secondItem="8zQ-d9-vnk" secondAttribute="trailing" id="b1c-92-xnh"/>
+                            <constraint firstItem="SDC-6B-t1J" firstAttribute="top" secondItem="tab-JO-hHB" secondAttribute="bottom" constant="32" id="nM3-hH-pog"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="C7G-uI-gch">
-                        <barButtonItem key="rightBarButtonItem" title="Delete" id="Ruj-sw-a5C"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="Ruj-sw-a5C"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jGC-ce-8kx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -392,24 +413,79 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Edit Trade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="opR-a8-yY7">
-                                <rect key="frame" x="267" y="193" width="77" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create/Update Trade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="opR-a8-yY7">
+                                <rect key="frame" x="16" y="133" width="382" height="34"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ticker Symbol" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NLc-QR-Yul">
+                                <rect key="frame" x="16" y="199" width="382" height="34"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Quantity" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0k6-0s-xeL">
+                                <rect key="frame" x="16" y="249" width="382" height="34"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oT0-WM-Xsx">
+                                <rect key="frame" x="16" y="299" width="382" height="34"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Account" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4AD-kv-Xo0">
+                                <rect key="frame" x="16" y="349" width="382" height="34"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <datePicker contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="hYQ-oL-OlF">
+                                <rect key="frame" x="16" y="399" width="382" height="51"/>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EyA-zy-MIl">
+                                <rect key="frame" x="0.0" y="493" width="414" height="38"/>
+                                <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Rtk-nl-wlo"/>
+                                </constraints>
+                                <state key="normal" title="Delete Trade">
+                                    <color key="titleColor" systemColor="systemRedColor"/>
+                                </state>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ihi-0t-H0x"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="0k6-0s-xeL" firstAttribute="top" secondItem="NLc-QR-Yul" secondAttribute="bottom" constant="16" id="2ei-Gq-0ev"/>
+                            <constraint firstItem="hYQ-oL-OlF" firstAttribute="leading" secondItem="ihi-0t-H0x" secondAttribute="leading" constant="16" id="371-bk-CC0"/>
+                            <constraint firstItem="ihi-0t-H0x" firstAttribute="trailing" secondItem="NLc-QR-Yul" secondAttribute="trailing" constant="16" id="4ac-4r-g06"/>
+                            <constraint firstItem="EyA-zy-MIl" firstAttribute="leading" secondItem="ihi-0t-H0x" secondAttribute="leading" id="5D8-h8-Jk0"/>
+                            <constraint firstItem="ihi-0t-H0x" firstAttribute="trailing" secondItem="EyA-zy-MIl" secondAttribute="trailing" id="6hv-JL-dQZ"/>
+                            <constraint firstItem="ihi-0t-H0x" firstAttribute="trailing" secondItem="opR-a8-yY7" secondAttribute="trailing" constant="16" id="7YQ-8o-nmX"/>
+                            <constraint firstItem="ihi-0t-H0x" firstAttribute="trailing" secondItem="0k6-0s-xeL" secondAttribute="trailing" constant="16" id="ADk-R7-qNt"/>
+                            <constraint firstItem="ihi-0t-H0x" firstAttribute="trailing" secondItem="4AD-kv-Xo0" secondAttribute="trailing" constant="16" id="Ahx-TR-gmw"/>
+                            <constraint firstItem="4AD-kv-Xo0" firstAttribute="leading" secondItem="ihi-0t-H0x" secondAttribute="leading" constant="16" id="HQX-kh-Ich"/>
+                            <constraint firstItem="NLc-QR-Yul" firstAttribute="leading" secondItem="ihi-0t-H0x" secondAttribute="leading" constant="16" id="I21-Dr-Eri"/>
+                            <constraint firstItem="4AD-kv-Xo0" firstAttribute="top" secondItem="oT0-WM-Xsx" secondAttribute="bottom" constant="16" id="MBx-Lp-12Q"/>
+                            <constraint firstItem="NLc-QR-Yul" firstAttribute="top" secondItem="opR-a8-yY7" secondAttribute="bottom" constant="32" id="MzK-cr-XWp"/>
+                            <constraint firstItem="0k6-0s-xeL" firstAttribute="leading" secondItem="ihi-0t-H0x" secondAttribute="leading" constant="16" id="NV7-x8-uOL"/>
+                            <constraint firstItem="EyA-zy-MIl" firstAttribute="top" secondItem="hYQ-oL-OlF" secondAttribute="bottom" constant="45" id="TGD-Rp-Gou"/>
+                            <constraint firstItem="ihi-0t-H0x" firstAttribute="trailing" secondItem="oT0-WM-Xsx" secondAttribute="trailing" constant="16" id="TuB-Mn-IkO"/>
+                            <constraint firstItem="opR-a8-yY7" firstAttribute="leading" secondItem="ihi-0t-H0x" secondAttribute="leading" constant="16" id="Zj8-Jw-fP3"/>
+                            <constraint firstItem="hYQ-oL-OlF" firstAttribute="top" secondItem="4AD-kv-Xo0" secondAttribute="bottom" constant="16" id="aM2-yh-COC"/>
+                            <constraint firstItem="oT0-WM-Xsx" firstAttribute="leading" secondItem="ihi-0t-H0x" secondAttribute="leading" constant="16" id="g7c-6O-6Qh"/>
+                            <constraint firstItem="oT0-WM-Xsx" firstAttribute="top" secondItem="0k6-0s-xeL" secondAttribute="bottom" constant="16" id="rlv-Az-rwd"/>
+                            <constraint firstItem="opR-a8-yY7" firstAttribute="top" secondItem="ihi-0t-H0x" secondAttribute="top" constant="45" id="z5U-IN-Oa8"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ubJ-lQ-vMo">
-                        <barButtonItem key="rightBarButtonItem" title="Delete" id="F5c-am-emG"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="F5c-am-emG"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W6G-Hk-RNE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2686" y="1177"/>
+            <point key="canvasLocation" x="2685.507246376812" y="1176.5625"/>
         </scene>
         <!--Recent Trades-->
         <scene sceneID="aor-Dg-wK0">
@@ -435,7 +511,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Recent Trades" id="GRA-M1-ajX">
-                        <barButtonItem key="rightBarButtonItem" title="+ Add" id="2bh-7Z-mtS"/>
+                        <barButtonItem key="rightBarButtonItem" title="+ Add" id="2bh-7Z-mtS">
+                            <connections>
+                                <action selector="addTrade:" destination="VE2-dR-1Ai" id="mxT-sk-vxS"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="OnZ-nF-eYE" kind="show" identifier="showTradeSegue" id="g9M-9B-R1b"/>
@@ -463,10 +543,14 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iMV-bO-5pP"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="fjc-pe-3oz">
-                        <barButtonItem key="rightBarButtonItem" title="Edit" id="TqD-Yi-EhP"/>
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="TqD-Yi-EhP">
+                            <connections>
+                                <action selector="editTrade:" destination="OnZ-nF-eYE" id="8q8-Fw-ePV"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="VUi-hP-Qi3" kind="show" identifier="editTradeSegue" id="j9Y-Y9-QDp"/>
@@ -525,6 +609,9 @@
         <image name="person.2.fill" catalog="system" width="128" height="80"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
