@@ -160,8 +160,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="C7G-uI-gch">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="Ruj-sw-a5C"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="Ruj-sw-a5C">
+                            <connections>
+                                <action selector="accountSave:" destination="xtR-dR-02p" id="FeX-T4-Pb5"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="accountNameField" destination="SDC-6B-t1J" id="6aX-ur-GTo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jGC-ce-8kx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -7,6 +7,10 @@
 
 import UIKit
 
+struct database {
+    static var db = DB()
+}
+
 class HomeViewController: UIViewController {
 
     

@@ -9,13 +9,19 @@ import UIKit
 
 class EditAccountViewController: UIViewController {
 
+    @IBOutlet weak var accountNameField: UITextField!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func accountSave(_ sender: Any) {
+        database.db.insertAccount(name: accountNameField.text!)
+        accountNameField.text = ""
+    }
+    
     /*
     // MARK: - Navigation
 

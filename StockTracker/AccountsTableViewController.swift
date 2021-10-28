@@ -13,7 +13,7 @@ class AccountsTableViewController: UITableViewController {
         performSegue(withIdentifier: "addAccountSegue", sender: self)
     }
     
-    var accounts = ["Acc 1", "Acc 2", "Acc 3"]
+    let accounts = database.db.getAccounts()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +45,7 @@ class AccountsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "account-cell", for: indexPath)
 
-        cell.textLabel?.text = accounts[indexPath.row]
+        cell.textLabel?.text = accounts[indexPath.row].name
         
         return cell
     }
