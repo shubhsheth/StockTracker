@@ -9,10 +9,14 @@ import UIKit
 
 class AccountsViewController: UIViewController {
 
+    @IBOutlet weak var accountsTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        accountsTableView.delegate = self
+        accountsTableView.dataSource = self
     }
     
 
@@ -26,4 +30,27 @@ class AccountsViewController: UIViewController {
     }
     */
 
+}
+
+extension AccountsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "showAccountSegue", sender: self)
+    }
+}
+
+extension AccountsViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = accountsTableView.dequeueReusableCell(withIdentifier: "account-cell", for: indexPath)
+        
+        cell.textLabel?.text = "Hello World"
+        return cell
+    }
 }

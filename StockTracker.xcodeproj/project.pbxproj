@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3F56FB7F272A646500C7967B /* AccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F56FB7E272A646500C7967B /* AccountsViewController.swift */; };
-		3F56FB81272A648200C7967B /* TradesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F56FB80272A648200C7967B /* TradesViewController.swift */; };
+		3F56FB83272A72AB00C7967B /* AccountsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F56FB82272A72AB00C7967B /* AccountsTableViewController.swift */; };
+		3F56FB85272A72BD00C7967B /* TradesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F56FB84272A72BD00C7967B /* TradesTableViewController.swift */; };
 		3FB45E35271934DC009326DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB45E34271934DC009326DF /* AppDelegate.swift */; };
 		3FB45E37271934DC009326DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB45E36271934DC009326DF /* SceneDelegate.swift */; };
 		3FB45E39271934DC009326DF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB45E38271934DC009326DF /* ViewController.swift */; };
@@ -18,8 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3F56FB7E272A646500C7967B /* AccountsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsViewController.swift; sourceTree = "<group>"; };
-		3F56FB80272A648200C7967B /* TradesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradesViewController.swift; sourceTree = "<group>"; };
+		3F56FB82272A72AB00C7967B /* AccountsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsTableViewController.swift; sourceTree = "<group>"; };
+		3F56FB84272A72BD00C7967B /* TradesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradesTableViewController.swift; sourceTree = "<group>"; };
 		3FB45E31271934DC009326DF /* StockTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StockTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FB45E34271934DC009326DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FB45E36271934DC009326DF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,12 +63,12 @@
 				3FB45E34271934DC009326DF /* AppDelegate.swift */,
 				3FB45E36271934DC009326DF /* SceneDelegate.swift */,
 				3FB45E38271934DC009326DF /* ViewController.swift */,
-				3F56FB80272A648200C7967B /* TradesViewController.swift */,
 				3FB45E3A271934DC009326DF /* Main.storyboard */,
 				3FB45E3D271934DF009326DF /* Assets.xcassets */,
 				3FB45E3F271934DF009326DF /* LaunchScreen.storyboard */,
 				3FB45E42271934DF009326DF /* Info.plist */,
-				3F56FB7E272A646500C7967B /* AccountsViewController.swift */,
+				3F56FB82272A72AB00C7967B /* AccountsTableViewController.swift */,
+				3F56FB84272A72BD00C7967B /* TradesTableViewController.swift */,
 			);
 			path = StockTracker;
 			sourceTree = "<group>";
@@ -144,10 +144,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FB45E39271934DC009326DF /* ViewController.swift in Sources */,
-				3F56FB81272A648200C7967B /* TradesViewController.swift in Sources */,
+				3F56FB83272A72AB00C7967B /* AccountsTableViewController.swift in Sources */,
 				3FB45E35271934DC009326DF /* AppDelegate.swift in Sources */,
-				3F56FB7F272A646500C7967B /* AccountsViewController.swift in Sources */,
 				3FB45E37271934DC009326DF /* SceneDelegate.swift in Sources */,
+				3F56FB85272A72BD00C7967B /* TradesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

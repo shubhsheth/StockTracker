@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Accounts-->
+        <!--Accounts View Controller-->
         <scene sceneID="T4G-6A-ZPQ">
             <objects>
                 <viewController id="jcF-8g-498" customClass="AccountsViewController" customModule="StockTracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -27,26 +27,112 @@
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KxG-jQ-e7R">
                                 <rect key="frame" x="16" y="147.5" width="382" height="620.5"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="account-cell" id="2iH-z4-e0p">
+                                        <rect key="frame" x="0.0" y="24.5" width="382" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2iH-z4-e0p" id="kzu-Ua-Feh">
+                                            <rect key="frame" x="0.0" y="0.0" width="382" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aLw-DY-OIg"/>
                         <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="5Tj-YM-tfO" firstAttribute="leading" secondItem="jLU-kV-Jxa" secondAttribute="leading" constant="16" id="1Yb-Dk-a3N"/>
-                            <constraint firstItem="aLw-DY-OIg" firstAttribute="bottom" secondItem="KxG-jQ-e7R" secondAttribute="bottom" constant="45" id="DmE-rx-MA0"/>
                             <constraint firstItem="aLw-DY-OIg" firstAttribute="trailing" secondItem="KxG-jQ-e7R" secondAttribute="trailing" constant="16" id="LH7-3U-hIa"/>
                             <constraint firstItem="KxG-jQ-e7R" firstAttribute="leading" secondItem="aLw-DY-OIg" secondAttribute="leading" constant="16" id="VXb-eG-GXe"/>
                             <constraint firstItem="KxG-jQ-e7R" firstAttribute="top" secondItem="5Tj-YM-tfO" secondAttribute="bottom" constant="32" id="eXj-Pe-7OE"/>
                             <constraint firstItem="aLw-DY-OIg" firstAttribute="trailing" secondItem="5Tj-YM-tfO" secondAttribute="trailing" constant="16" id="nnf-gZ-h84"/>
                             <constraint firstItem="5Tj-YM-tfO" firstAttribute="top" secondItem="aLw-DY-OIg" secondAttribute="top" constant="45" id="uES-oM-QER"/>
+                            <constraint firstItem="aLw-DY-OIg" firstAttribute="bottom" secondItem="KxG-jQ-e7R" secondAttribute="bottom" constant="45" id="wGd-xb-EJ3"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Accounts" image="person.2.fill" catalog="system" id="dGN-WN-oZ9"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="zHL-Kn-bjd"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="accountsTableView" destination="KxG-jQ-e7R" id="CcN-cl-kCx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lTt-Ox-fXC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="641" y="-372"/>
+            <point key="canvasLocation" x="4089.8550724637685" y="501.5625"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="gmg-rT-moD">
+            <objects>
+                <viewController id="Ruz-2V-pdg" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ohc-Q0-F4F">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8yB-kW-dHa">
+                                <rect key="frame" x="16" y="133" width="382" height="34"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ggE-Yj-9KT">
+                                <rect key="frame" x="16" y="183" width="382" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="rsC-pO-33K"/>
+                        <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="ggE-Yj-9KT" firstAttribute="top" secondItem="8yB-kW-dHa" secondAttribute="bottom" constant="16" id="1LF-by-Kdd"/>
+                            <constraint firstItem="ggE-Yj-9KT" firstAttribute="leading" secondItem="rsC-pO-33K" secondAttribute="leading" constant="16" id="2Mi-qY-DHg"/>
+                            <constraint firstItem="8yB-kW-dHa" firstAttribute="leading" secondItem="rsC-pO-33K" secondAttribute="leading" constant="16" id="8xM-bo-a6A"/>
+                            <constraint firstItem="rsC-pO-33K" firstAttribute="trailing" secondItem="ggE-Yj-9KT" secondAttribute="trailing" constant="16" id="BWm-2Y-nRY"/>
+                            <constraint firstItem="8yB-kW-dHa" firstAttribute="top" secondItem="rsC-pO-33K" secondAttribute="top" constant="45" id="XCc-oE-FhN"/>
+                            <constraint firstItem="rsC-pO-33K" firstAttribute="trailing" secondItem="8yB-kW-dHa" secondAttribute="trailing" constant="16" id="dfs-Gj-m0o"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="qNj-x1-vai"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zKd-J7-54o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2686" y="-372"/>
+        </scene>
+        <!--All Accounts-->
+        <scene sceneID="bVf-x0-gfk">
+            <objects>
+                <tableViewController id="GGW-fK-khn" customClass="AccountsTableViewController" customModule="StockTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="vg7-5h-kzq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="account-cell" id="VMl-jw-NUd">
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VMl-jw-NUd" id="Jrm-mf-x98">
+                                    <rect key="frame" x="0.0" y="0.0" width="384.5" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="GGW-fK-khn" id="zf9-n9-mjw"/>
+                            <outlet property="delegate" destination="GGW-fK-khn" id="jRw-TQ-AOP"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="All Accounts" id="5D3-0n-Qa5">
+                        <barButtonItem key="rightBarButtonItem" title="+ Add" style="plain" id="q7K-nn-5Uh"/>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="Ruz-2V-pdg" kind="show" identifier="showAccountSegue" id="11r-Vp-PGw"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="46N-ua-gSw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1649" y="-372"/>
         </scene>
         <!--Home-->
         <scene sceneID="Mbe-Uh-fw5">
@@ -308,15 +394,15 @@
                     </tabBar>
                     <connections>
                         <segue destination="WsW-K3-KHK" kind="relationship" relationship="viewControllers" id="xca-Wj-Qmz"/>
-                        <segue destination="jcF-8g-498" kind="relationship" relationship="viewControllers" id="wfD-bd-2yE"/>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Tds-yN-veH"/>
+                        <segue destination="ewW-Ik-Ge6" kind="relationship" relationship="viewControllers" id="wfD-bd-2yE"/>
+                        <segue destination="JH7-zZ-K8U" kind="relationship" relationship="viewControllers" id="Tds-yN-veH"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="apG-bu-QFW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1110" y="-147"/>
         </scene>
-        <!--Trades-->
+        <!--Trades View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="TradesViewController" customModule="StockTracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -334,7 +420,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FzA-dO-2lL">
-                                <rect key="frame" x="16" y="147.5" width="382" height="620.5"/>
+                                <rect key="frame" x="16" y="147.5" width="382" height="669.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -350,11 +436,97 @@
                             <constraint firstItem="l7t-ho-Ahf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="45" id="p4g-qr-mer"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Trades" image="dollarsign.circle.fill" catalog="system" id="1Pv-JX-Eqw"/>
+                    <navigationItem key="navigationItem" id="PGB-M5-pIR"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="641" y="404"/>
+            <point key="canvasLocation" x="3913" y="1177"/>
+        </scene>
+        <!--Trades Table View Controller-->
+        <scene sceneID="aor-Dg-wK0">
+            <objects>
+                <tableViewController id="VE2-dR-1Ai" customClass="TradesTableViewController" customModule="StockTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="qYM-Xl-3qP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="trade-cell" id="ysx-kR-ywE">
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ysx-kR-ywE" id="PsZ-II-ZlW">
+                                    <rect key="frame" x="0.0" y="0.0" width="384.5" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="VE2-dR-1Ai" id="4Xf-Bi-h5w"/>
+                            <outlet property="delegate" destination="VE2-dR-1Ai" id="Htb-Mu-W3P"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="GRA-M1-ajX"/>
+                    <connections>
+                        <segue destination="OnZ-nF-eYE" kind="show" identifier="showTradeSegue" id="g9M-9B-R1b"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D9M-br-6Bx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1648" y="364"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="xr7-uE-SX1">
+            <objects>
+                <viewController id="OnZ-nF-eYE" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UqB-w2-YhU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="iMV-bO-5pP"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="fjc-pe-3oz"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zhh-GG-LuX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2686" y="364"/>
+        </scene>
+        <!--Accounts-->
+        <scene sceneID="36x-o6-GXr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ewW-Ik-Ge6" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Accounts" image="person.2.fill" catalog="system" id="dGN-WN-oZ9"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="UiX-YK-zlS">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="GGW-fK-khn" kind="relationship" relationship="rootViewController" id="bfE-yz-w0v"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Mh-h9-TAy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="640.57971014492762" y="-372.32142857142856"/>
+        </scene>
+        <!--Trades-->
+        <scene sceneID="Gcd-DF-ZNu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JH7-zZ-K8U" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Trades" image="dollarsign.circle.fill" catalog="system" id="1Pv-JX-Eqw"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qQu-96-qCn">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="VE2-dR-1Ai" kind="relationship" relationship="rootViewController" id="9Nl-ot-PnS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wuO-HY-9p2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="640.57971014492762" y="363.61607142857139"/>
         </scene>
     </scenes>
     <resources>
