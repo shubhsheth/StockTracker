@@ -8,65 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Accounts View Controller-->
-        <scene sceneID="T4G-6A-ZPQ">
-            <objects>
-                <viewController id="jcF-8g-498" customClass="AccountsViewController" customModule="StockTracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="jLU-kV-Jxa">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All Accounts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Tj-YM-tfO">
-                                <rect key="frame" x="16" y="89" width="382" height="26.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="26.5" id="XyE-q9-FLH"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="28"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KxG-jQ-e7R">
-                                <rect key="frame" x="16" y="147.5" width="382" height="620.5"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="account-cell" id="2iH-z4-e0p">
-                                        <rect key="frame" x="0.0" y="24.5" width="382" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2iH-z4-e0p" id="kzu-Ua-Feh">
-                                            <rect key="frame" x="0.0" y="0.0" width="382" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="aLw-DY-OIg"/>
-                        <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="5Tj-YM-tfO" firstAttribute="leading" secondItem="jLU-kV-Jxa" secondAttribute="leading" constant="16" id="1Yb-Dk-a3N"/>
-                            <constraint firstItem="aLw-DY-OIg" firstAttribute="trailing" secondItem="KxG-jQ-e7R" secondAttribute="trailing" constant="16" id="LH7-3U-hIa"/>
-                            <constraint firstItem="KxG-jQ-e7R" firstAttribute="leading" secondItem="aLw-DY-OIg" secondAttribute="leading" constant="16" id="VXb-eG-GXe"/>
-                            <constraint firstItem="KxG-jQ-e7R" firstAttribute="top" secondItem="5Tj-YM-tfO" secondAttribute="bottom" constant="32" id="eXj-Pe-7OE"/>
-                            <constraint firstItem="aLw-DY-OIg" firstAttribute="trailing" secondItem="5Tj-YM-tfO" secondAttribute="trailing" constant="16" id="nnf-gZ-h84"/>
-                            <constraint firstItem="5Tj-YM-tfO" firstAttribute="top" secondItem="aLw-DY-OIg" secondAttribute="top" constant="45" id="uES-oM-QER"/>
-                            <constraint firstItem="aLw-DY-OIg" firstAttribute="bottom" secondItem="KxG-jQ-e7R" secondAttribute="bottom" constant="45" id="wGd-xb-EJ3"/>
-                        </constraints>
-                    </view>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="zHL-Kn-bjd"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="accountsTableView" destination="KxG-jQ-e7R" id="CcN-cl-kCx"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lTt-Ox-fXC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4089.8550724637685" y="501.5625"/>
-        </scene>
-        <!--View Controller-->
+        <!--Show Account View Controller-->
         <scene sceneID="gmg-rT-moD">
             <objects>
-                <viewController id="Ruz-2V-pdg" sceneMemberID="viewController">
+                <viewController id="Ruz-2V-pdg" customClass="ShowAccountViewController" customModule="StockTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ohc-Q0-F4F">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -94,11 +39,43 @@
                             <constraint firstItem="rsC-pO-33K" firstAttribute="trailing" secondItem="8yB-kW-dHa" secondAttribute="trailing" constant="16" id="dfs-Gj-m0o"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="qNj-x1-vai"/>
+                    <navigationItem key="navigationItem" id="qNj-x1-vai">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="7L4-Vm-am8"/>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="xtR-dR-02p" kind="show" identifier="editAccountSegue" id="Bvt-w0-x0h"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zKd-J7-54o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2686" y="-372"/>
+            <point key="canvasLocation" x="2686" y="-1256"/>
+        </scene>
+        <!--Edit Account View Controller-->
+        <scene sceneID="4CJ-WI-1AX">
+            <objects>
+                <viewController id="xtR-dR-02p" customClass="EditAccountViewController" customModule="StockTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Jfc-PD-ABc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="add Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QhV-Gf-nCa">
+                                <rect key="frame" x="69" y="219" width="189" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="rS7-Au-8im"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="C7G-uI-gch">
+                        <barButtonItem key="rightBarButtonItem" title="Delete" id="Ruj-sw-a5C"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jGC-ce-8kx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2686" y="-496"/>
         </scene>
         <!--All Accounts-->
         <scene sceneID="bVf-x0-gfk">
@@ -124,15 +101,20 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="All Accounts" id="5D3-0n-Qa5">
-                        <barButtonItem key="rightBarButtonItem" title="+ Add" style="plain" id="q7K-nn-5Uh"/>
+                        <barButtonItem key="rightBarButtonItem" title="+ Add" style="plain" id="q7K-nn-5Uh">
+                            <connections>
+                                <action selector="addAccount:" destination="GGW-fK-khn" id="bG3-qB-RYB"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="Ruz-2V-pdg" kind="show" identifier="showAccountSegue" id="11r-Vp-PGw"/>
+                        <segue destination="xtR-dR-02p" kind="show" identifier="addAccountSegue" id="n2R-Ov-7bq"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="46N-ua-gSw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1649" y="-372"/>
+            <point key="canvasLocation" x="1648" y="-741"/>
         </scene>
         <!--Home-->
         <scene sceneID="Mbe-Uh-fw5">
@@ -402,47 +384,34 @@
             </objects>
             <point key="canvasLocation" x="-1110" y="-147"/>
         </scene>
-        <!--Trades View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Edit Trade View Controller-->
+        <scene sceneID="k7q-0K-5Tf">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="TradesViewController" customModule="StockTracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController id="VUi-hP-Qi3" customClass="EditTradeViewController" customModule="StockTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4UM-B2-78G">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recent Trades" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l7t-ho-Ahf">
-                                <rect key="frame" x="16" y="89" width="382" height="26.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="26.5" id="mUS-PO-27B"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="28"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Edit Trade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="opR-a8-yY7">
+                                <rect key="frame" x="267" y="193" width="77" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FzA-dO-2lL">
-                                <rect key="frame" x="16" y="147.5" width="382" height="669.5"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="l7t-ho-Ahf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="1fl-qW-bYZ"/>
-                            <constraint firstItem="FzA-dO-2lL" firstAttribute="top" secondItem="l7t-ho-Ahf" secondAttribute="bottom" constant="32" id="62E-Ab-giT"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="FzA-dO-2lL" secondAttribute="bottom" constant="45" id="IKm-Vo-4VH"/>
-                            <constraint firstItem="FzA-dO-2lL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="P7s-Yb-a2e"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="l7t-ho-Ahf" secondAttribute="trailing" constant="16" id="Z9r-ul-rJz"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FzA-dO-2lL" secondAttribute="trailing" constant="16" id="f7V-IV-bkg"/>
-                            <constraint firstItem="l7t-ho-Ahf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="45" id="p4g-qr-mer"/>
-                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ihi-0t-H0x"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="PGB-M5-pIR"/>
+                    <navigationItem key="navigationItem" id="ubJ-lQ-vMo">
+                        <barButtonItem key="rightBarButtonItem" title="Delete" id="F5c-am-emG"/>
+                    </navigationItem>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W6G-Hk-RNE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3913" y="1177"/>
+            <point key="canvasLocation" x="2686" y="1177"/>
         </scene>
-        <!--Trades Table View Controller-->
+        <!--Recent Trades-->
         <scene sceneID="aor-Dg-wK0">
             <objects>
                 <tableViewController id="VE2-dR-1Ai" customClass="TradesTableViewController" customModule="StockTracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -465,30 +434,47 @@
                             <outlet property="delegate" destination="VE2-dR-1Ai" id="Htb-Mu-W3P"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="GRA-M1-ajX"/>
+                    <navigationItem key="navigationItem" title="Recent Trades" id="GRA-M1-ajX">
+                        <barButtonItem key="rightBarButtonItem" title="+ Add" id="2bh-7Z-mtS"/>
+                    </navigationItem>
                     <connections>
                         <segue destination="OnZ-nF-eYE" kind="show" identifier="showTradeSegue" id="g9M-9B-R1b"/>
+                        <segue destination="VUi-hP-Qi3" kind="show" identifier="addTradeSegue" id="MZ8-bT-aPh"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D9M-br-6Bx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1648" y="364"/>
+            <point key="canvasLocation" x="1648" y="748"/>
         </scene>
-        <!--View Controller-->
+        <!--Show Trade View Controller-->
         <scene sceneID="xr7-uE-SX1">
             <objects>
-                <viewController id="OnZ-nF-eYE" sceneMemberID="viewController">
+                <viewController id="OnZ-nF-eYE" customClass="ShowTradeViewController" customModule="StockTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UqB-w2-YhU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Show Trade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Te-Qc-u43">
+                                <rect key="frame" x="186" y="282" width="90" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="iMV-bO-5pP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="fjc-pe-3oz"/>
+                    <navigationItem key="navigationItem" id="fjc-pe-3oz">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="TqD-Yi-EhP"/>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="VUi-hP-Qi3" kind="show" identifier="editTradeSegue" id="j9Y-Y9-QDp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zhh-GG-LuX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2686" y="364"/>
+            <point key="canvasLocation" x="2685.507246376812" y="363.61607142857139"/>
         </scene>
         <!--Accounts-->
         <scene sceneID="36x-o6-GXr">
@@ -529,6 +515,10 @@
             <point key="canvasLocation" x="640.57971014492762" y="363.61607142857139"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="j9Y-Y9-QDp"/>
+        <segue reference="Bvt-w0-x0h"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="dollarsign.circle.fill" catalog="system" width="128" height="121"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>

@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		3F56FB83272A72AB00C7967B /* AccountsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F56FB82272A72AB00C7967B /* AccountsTableViewController.swift */; };
 		3F56FB85272A72BD00C7967B /* TradesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F56FB84272A72BD00C7967B /* TradesTableViewController.swift */; };
+		3F56FB8A272A7AA800C7967B /* EditTradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F56FB89272A7AA800C7967B /* EditTradeViewController.swift */; };
+		3F56FB8C272A7AB700C7967B /* ShowTradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F56FB8B272A7AB700C7967B /* ShowTradeViewController.swift */; };
+		3F56FB8E272A7AC800C7967B /* EditAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F56FB8D272A7AC800C7967B /* EditAccountViewController.swift */; };
+		3F56FB90272A7AD600C7967B /* ShowAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F56FB8F272A7AD600C7967B /* ShowAccountViewController.swift */; };
 		3FB45E35271934DC009326DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB45E34271934DC009326DF /* AppDelegate.swift */; };
 		3FB45E37271934DC009326DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB45E36271934DC009326DF /* SceneDelegate.swift */; };
 		3FB45E39271934DC009326DF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB45E38271934DC009326DF /* ViewController.swift */; };
@@ -20,6 +24,10 @@
 /* Begin PBXFileReference section */
 		3F56FB82272A72AB00C7967B /* AccountsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsTableViewController.swift; sourceTree = "<group>"; };
 		3F56FB84272A72BD00C7967B /* TradesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradesTableViewController.swift; sourceTree = "<group>"; };
+		3F56FB89272A7AA800C7967B /* EditTradeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTradeViewController.swift; sourceTree = "<group>"; };
+		3F56FB8B272A7AB700C7967B /* ShowTradeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowTradeViewController.swift; sourceTree = "<group>"; };
+		3F56FB8D272A7AC800C7967B /* EditAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountViewController.swift; sourceTree = "<group>"; };
+		3F56FB8F272A7AD600C7967B /* ShowAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAccountViewController.swift; sourceTree = "<group>"; };
 		3FB45E31271934DC009326DF /* StockTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StockTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FB45E34271934DC009326DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FB45E36271934DC009326DF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +49,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F56FB87272A7A6E00C7967B /* Accounts */ = {
+			isa = PBXGroup;
+			children = (
+				3F56FB8D272A7AC800C7967B /* EditAccountViewController.swift */,
+				3F56FB8F272A7AD600C7967B /* ShowAccountViewController.swift */,
+			);
+			path = Accounts;
+			sourceTree = "<group>";
+		};
+		3F56FB88272A7A7500C7967B /* Trades */ = {
+			isa = PBXGroup;
+			children = (
+				3F56FB89272A7AA800C7967B /* EditTradeViewController.swift */,
+				3F56FB8B272A7AB700C7967B /* ShowTradeViewController.swift */,
+			);
+			path = Trades;
+			sourceTree = "<group>";
+		};
 		3FB45E28271934DC009326DF = {
 			isa = PBXGroup;
 			children = (
@@ -60,6 +86,8 @@
 		3FB45E33271934DC009326DF /* StockTracker */ = {
 			isa = PBXGroup;
 			children = (
+				3F56FB88272A7A7500C7967B /* Trades */,
+				3F56FB87272A7A6E00C7967B /* Accounts */,
 				3FB45E34271934DC009326DF /* AppDelegate.swift */,
 				3FB45E36271934DC009326DF /* SceneDelegate.swift */,
 				3FB45E38271934DC009326DF /* ViewController.swift */,
@@ -146,8 +174,12 @@
 				3FB45E39271934DC009326DF /* ViewController.swift in Sources */,
 				3F56FB83272A72AB00C7967B /* AccountsTableViewController.swift in Sources */,
 				3FB45E35271934DC009326DF /* AppDelegate.swift in Sources */,
+				3F56FB8C272A7AB700C7967B /* ShowTradeViewController.swift in Sources */,
+				3F56FB8E272A7AC800C7967B /* EditAccountViewController.swift in Sources */,
+				3F56FB90272A7AD600C7967B /* ShowAccountViewController.swift in Sources */,
 				3FB45E37271934DC009326DF /* SceneDelegate.swift in Sources */,
 				3F56FB85272A72BD00C7967B /* TradesTableViewController.swift in Sources */,
+				3F56FB8A272A7AA800C7967B /* EditTradeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

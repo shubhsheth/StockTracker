@@ -9,6 +9,10 @@ import UIKit
 
 class AccountsTableViewController: UITableViewController {
 
+    @IBAction func addAccount(_ sender: Any) {
+        performSegue(withIdentifier: "addAccountSegue", sender: self)
+    }
+    
     var accounts = ["Acc 1", "Acc 2", "Acc 3"]
     
     override func viewDidLoad() {
