@@ -13,10 +13,14 @@ class ShowAccountViewController: UIViewController {
         performSegue(withIdentifier: "editAccountSegue", sender: self)
     }
     
+    @IBOutlet weak var totalValueView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        // STYLES
+        totalValueView.layer.cornerRadius = 13
     }
     
 

@@ -13,10 +13,14 @@ class ShowTradeViewController: UIViewController {
         performSegue(withIdentifier: "editTradeSegue", sender: self)
     }
     
+    @IBOutlet weak var tradeInfoView: UIView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        // STYLES
+        tradeInfoView.layer.cornerRadius = 13
     }
     
 
