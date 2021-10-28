@@ -19,10 +19,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.`
         
         // STYLES
-        // Total Holdings
         totalHoldingsView.layer.cornerRadius = 13
-        
-        // Day Gains
         dayGainsView.layer.cornerRadius = 13
         totalGainsView.layer.cornerRadius = 13
     }

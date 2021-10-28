@@ -36,7 +36,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5qr-G1-mOe">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="921"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="656"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dashboard" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fT6-Tw-feg">
                                                 <rect key="frame" x="16" y="45" width="382" height="48"/>
@@ -75,23 +75,87 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="sgX-SJ-Xks">
-                                                <rect key="frame" x="16" y="261" width="382" height="380"/>
+                                                <rect key="frame" x="16" y="261" width="382" height="115"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5QN-4Y-7Xs">
-                                                        <rect key="frame" x="0.0" y="0.0" width="183" height="380"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="183" height="115"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="$1234.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GyH-C4-TTz">
+                                                                <rect key="frame" x="16" y="45" width="151" height="24"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Day's Gains" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RLx-0L-JuM">
+                                                                <rect key="frame" x="16" y="16" width="151" height="19"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                                <color key="textColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="0.59673344689999996" colorSpace="calibratedRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="0.32%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jwn-eq-fof">
+                                                                <rect key="frame" x="16" y="86" width="151" height="17"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstItem="Jwn-eq-fof" firstAttribute="leading" secondItem="5QN-4Y-7Xs" secondAttribute="leading" constant="16" id="22t-jG-Bgw"/>
+                                                            <constraint firstAttribute="trailing" secondItem="GyH-C4-TTz" secondAttribute="trailing" constant="16" id="5As-UL-QVX"/>
+                                                            <constraint firstItem="GyH-C4-TTz" firstAttribute="top" secondItem="RLx-0L-JuM" secondAttribute="bottom" constant="10" id="6Zp-ic-4Pq"/>
+                                                            <constraint firstAttribute="bottom" secondItem="Jwn-eq-fof" secondAttribute="bottom" constant="16" id="HWZ-eu-iba"/>
+                                                            <constraint firstItem="RLx-0L-JuM" firstAttribute="leading" secondItem="5QN-4Y-7Xs" secondAttribute="leading" constant="16" id="Hva-B1-qeg"/>
+                                                            <constraint firstItem="Jwn-eq-fof" firstAttribute="top" secondItem="GyH-C4-TTz" secondAttribute="bottom" constant="10" id="J0H-iN-JDL"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Jwn-eq-fof" secondAttribute="trailing" constant="16" id="UB3-0I-zYP"/>
+                                                            <constraint firstItem="RLx-0L-JuM" firstAttribute="top" secondItem="5QN-4Y-7Xs" secondAttribute="top" constant="16" id="a6V-aq-73S"/>
+                                                            <constraint firstAttribute="trailing" secondItem="RLx-0L-JuM" secondAttribute="trailing" constant="16" id="bDa-Q5-PEZ"/>
+                                                            <constraint firstItem="GyH-C4-TTz" firstAttribute="leading" secondItem="5QN-4Y-7Xs" secondAttribute="leading" constant="16" id="ceN-uc-eOk"/>
+                                                        </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rDV-8W-i4B" userLabel="Total Gains View">
-                                                        <rect key="frame" x="199" y="0.0" width="183" height="380"/>
+                                                        <rect key="frame" x="199" y="0.0" width="183" height="115"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="0.32%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rri-f0-ORL">
+                                                                <rect key="frame" x="16" y="90" width="151" height="17"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Day's Gains" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNX-Jq-MVL">
+                                                                <rect key="frame" x="16" y="16" width="151" height="19"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                                <color key="textColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="0.59673344689999996" colorSpace="calibratedRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="$1234.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egx-op-tUG">
+                                                                <rect key="frame" x="16" y="45" width="151" height="24"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstItem="rri-f0-ORL" firstAttribute="leading" secondItem="rDV-8W-i4B" secondAttribute="leading" constant="16" id="0MD-9T-SGt"/>
+                                                            <constraint firstItem="fNX-Jq-MVL" firstAttribute="top" secondItem="rDV-8W-i4B" secondAttribute="top" constant="16" id="CLp-Bl-iUW"/>
+                                                            <constraint firstItem="egx-op-tUG" firstAttribute="top" secondItem="fNX-Jq-MVL" secondAttribute="bottom" constant="10" id="LTg-C9-3dA"/>
+                                                            <constraint firstItem="rri-f0-ORL" firstAttribute="top" secondItem="egx-op-tUG" secondAttribute="bottom" constant="10" id="OFp-P2-FCH"/>
+                                                            <constraint firstItem="egx-op-tUG" firstAttribute="leading" secondItem="rDV-8W-i4B" secondAttribute="leading" constant="16" id="e3P-ZT-daj"/>
+                                                            <constraint firstItem="fNX-Jq-MVL" firstAttribute="leading" secondItem="rDV-8W-i4B" secondAttribute="leading" constant="16" id="ngI-QA-Rd8"/>
+                                                            <constraint firstAttribute="trailing" secondItem="egx-op-tUG" secondAttribute="trailing" constant="16" id="po6-2S-Pov"/>
+                                                            <constraint firstAttribute="bottom" secondItem="rri-f0-ORL" secondAttribute="bottom" constant="16" id="q0r-v9-NGE"/>
+                                                            <constraint firstAttribute="trailing" secondItem="fNX-Jq-MVL" secondAttribute="trailing" constant="16" id="v8I-U1-t4Y"/>
+                                                            <constraint firstAttribute="trailing" secondItem="rri-f0-ORL" secondAttribute="trailing" constant="16" id="yhp-9p-0hi"/>
+                                                        </constraints>
                                                     </view>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="380" id="MCF-oZ-G3p"/>
+                                                    <constraint firstAttribute="height" constant="115" id="MCF-oZ-G3p"/>
                                                 </constraints>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x5d-uo-aKV">
-                                                <rect key="frame" x="16" y="681" width="382" height="200"/>
+                                                <rect key="frame" x="16" y="416" width="382" height="200"/>
                                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="200" id="riy-MR-K4N"/>
