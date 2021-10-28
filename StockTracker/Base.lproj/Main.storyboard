@@ -11,12 +11,36 @@
         <!--Accounts-->
         <scene sceneID="T4G-6A-ZPQ">
             <objects>
-                <viewController id="jcF-8g-498" sceneMemberID="viewController">
+                <viewController id="jcF-8g-498" customClass="AccountsViewController" customModule="StockTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jLU-kV-Jxa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All Accounts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Tj-YM-tfO">
+                                <rect key="frame" x="16" y="89" width="382" height="26.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="26.5" id="XyE-q9-FLH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KxG-jQ-e7R">
+                                <rect key="frame" x="16" y="147.5" width="382" height="620.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="aLw-DY-OIg"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="5Tj-YM-tfO" firstAttribute="leading" secondItem="jLU-kV-Jxa" secondAttribute="leading" constant="16" id="1Yb-Dk-a3N"/>
+                            <constraint firstItem="aLw-DY-OIg" firstAttribute="bottom" secondItem="KxG-jQ-e7R" secondAttribute="bottom" constant="45" id="DmE-rx-MA0"/>
+                            <constraint firstItem="aLw-DY-OIg" firstAttribute="trailing" secondItem="KxG-jQ-e7R" secondAttribute="trailing" constant="16" id="LH7-3U-hIa"/>
+                            <constraint firstItem="KxG-jQ-e7R" firstAttribute="leading" secondItem="aLw-DY-OIg" secondAttribute="leading" constant="16" id="VXb-eG-GXe"/>
+                            <constraint firstItem="KxG-jQ-e7R" firstAttribute="top" secondItem="5Tj-YM-tfO" secondAttribute="bottom" constant="32" id="eXj-Pe-7OE"/>
+                            <constraint firstItem="aLw-DY-OIg" firstAttribute="trailing" secondItem="5Tj-YM-tfO" secondAttribute="trailing" constant="16" id="nnf-gZ-h84"/>
+                            <constraint firstItem="5Tj-YM-tfO" firstAttribute="top" secondItem="aLw-DY-OIg" secondAttribute="top" constant="45" id="uES-oM-QER"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Accounts" image="person.2.fill" catalog="system" id="dGN-WN-oZ9"/>
                 </viewController>
@@ -27,7 +51,7 @@
         <!--Home-->
         <scene sceneID="Mbe-Uh-fw5">
             <objects>
-                <viewController id="WsW-K3-KHK" customClass="ViewController" customModule="StockTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="WsW-K3-KHK" customClass="HomeViewController" customModule="StockTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="l1F-MS-6I3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -295,12 +319,36 @@
         <!--Trades-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="StockTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="TradesViewController" customModule="StockTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recent Trades" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l7t-ho-Ahf">
+                                <rect key="frame" x="16" y="89" width="382" height="26.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="26.5" id="mUS-PO-27B"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FzA-dO-2lL">
+                                <rect key="frame" x="16" y="147.5" width="382" height="620.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="l7t-ho-Ahf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="1fl-qW-bYZ"/>
+                            <constraint firstItem="FzA-dO-2lL" firstAttribute="top" secondItem="l7t-ho-Ahf" secondAttribute="bottom" constant="32" id="62E-Ab-giT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="FzA-dO-2lL" secondAttribute="bottom" constant="45" id="IKm-Vo-4VH"/>
+                            <constraint firstItem="FzA-dO-2lL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="P7s-Yb-a2e"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="l7t-ho-Ahf" secondAttribute="trailing" constant="16" id="Z9r-ul-rJz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FzA-dO-2lL" secondAttribute="trailing" constant="16" id="f7V-IV-bkg"/>
+                            <constraint firstItem="l7t-ho-Ahf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="45" id="p4g-qr-mer"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Trades" image="dollarsign.circle.fill" catalog="system" id="1Pv-JX-Eqw"/>
                 </viewController>

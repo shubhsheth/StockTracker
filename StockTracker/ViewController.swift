@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class HomeViewController: UIViewController {
 
     
     @IBOutlet weak var totalHoldingsView: UIView!
@@ -22,12 +22,12 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.`
         
         // STYLES
-        totalHoldingsView.layer.cornerRadius = 13
-        dayGainsView.layer.cornerRadius = 13
-        totalGainsView.layer.cornerRadius = 13
-        dailyTrendView.layer.cornerRadius = 13
-        portfolioBreakdownView.layer.cornerRadius = 13
-        latestTradesView.layer.cornerRadius = 13
+        totalHoldingsView?.layer.cornerRadius = 13
+        dayGainsView?.layer.cornerRadius = 13
+        totalGainsView?.layer.cornerRadius = 13
+        dailyTrendView?.layer.cornerRadius = 13
+        portfolioBreakdownView?.layer.cornerRadius = 13
+        latestTradesView?.layer.cornerRadius = 13
     }
 
 
