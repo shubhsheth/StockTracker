@@ -19,7 +19,7 @@ class EditAccountViewController: UIViewController {
     
     @IBAction func accountSave(_ sender: Any) {
         database.db.insertAccount(name: accountNameField.text!)
-        accountNameField.text = ""
+        _ = navigationController?.popViewController(animated: true)
     }
     
     /*

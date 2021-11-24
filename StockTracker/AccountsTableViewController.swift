@@ -13,11 +13,13 @@ class AccountsTableViewController: UITableViewController {
         performSegue(withIdentifier: "addAccountSegue", sender: self)
     }
     
-    let accounts = database.db.getAccounts()
+    var accounts = database.db.getAccounts()
+    var selectedAccount = Account()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -27,6 +29,13 @@ class AccountsTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        accounts = database.db.getAccounts()
+        self.tableView.reloadData()
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -41,7 +50,6 @@ class AccountsTableViewController: UITableViewController {
         return 60;
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "account-cell", for: indexPath)
 
@@ -51,6 +59,7 @@ class AccountsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedAccount = accounts[indexPath.row]
         performSegue(withIdentifier: "showAccountSegue", sender: self)
     }
     
@@ -90,14 +99,13 @@ class AccountsTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "showAccountSegue" {
+            let detailsView = segue.destination as! ShowAccountViewController
+            detailsView.id = selectedAccount.id
+            detailsView.name = selectedAccount.name
+        }
     }
-    */
 
 }

@@ -94,6 +94,8 @@ class DB {
     }
     
     func getAccounts() -> [Account] {
+        
+        print("Accounts Sent")
         var list = [Account]()
 
         let query = "SELECT * FROM accounts;"
@@ -114,5 +116,26 @@ class DB {
         }
         
         return list
+    }
+    
+    func deleteAccount(id:Int) {
+        
+        let query = "DELETE FROM accounts WHERE id=?;"
+        var statement:OpaquePointer? = nil
+        
+        if sqlite3_prepare_v2(self.db, query, -1, &statement, nil) == SQLITE_OK {
+            sqlite3_bind_int(statement,1, Int32(id))
+            
+            if sqlite3_step(statement) == SQLITE_DONE {
+                print("Account Deleted")
+            } else {
+                print("Account Deletion Failed")
+            }
+            
+        } else {
+            print("Query Prep Failed")
+        }
+        
+        
     }
 }
