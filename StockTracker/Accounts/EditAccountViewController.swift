@@ -11,14 +11,24 @@ class EditAccountViewController: UIViewController {
 
     @IBOutlet weak var accountNameField: UITextField!
 
+    var id: Int = -1
+    var name: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        accountNameField.text = name
         // Do any additional setup after loading the view.
     }
     
     @IBAction func accountSave(_ sender: Any) {
-        database.db.insertAccount(name: accountNameField.text!)
+        if self.id == -1 {
+            database.db.insertAccount(name: accountNameField.text!)
+        }
+        else {
+            database.db.updateAccount(id: self.id, name: accountNameField.text!)
+        }
+        
         _ = navigationController?.popViewController(animated: true)
     }
     

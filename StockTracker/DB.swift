@@ -135,7 +135,47 @@ class DB {
         } else {
             print("Query Prep Failed")
         }
+    }
+    
+    func updateAccount(id:Int, name:String) {
         
+        let query = "UPDATE accounts SET name=? WHERE id=?;"
+        var statement:OpaquePointer? = nil
         
+        if sqlite3_prepare_v2(self.db, query, -1, &statement, nil) == SQLITE_OK {
+            sqlite3_bind_text(statement, 1, (name as NSString).utf8String, -1, nil)
+            sqlite3_bind_int(statement,2, Int32(id))
+            
+            if sqlite3_step(statement) == SQLITE_DONE {
+                print("Account Updated")
+            } else {
+                print("Account Updating Failed")
+            }
+            
+        } else {
+            print("Query Prep Failed")
+        }
+    }
+    
+    func getAccount(id: Int) -> Account {
+        let account = Account()
+
+        let query = "SELECT * FROM accounts WHERE id=?;"
+        var statement:OpaquePointer? = nil
+
+        if sqlite3_prepare_v2(self.db, query, -1, &statement, nil) == SQLITE_OK {
+            sqlite3_bind_int(statement,1, Int32(id))
+
+            while sqlite3_step(statement) == SQLITE_ROW {
+                account.id = Int(sqlite3_column_int(statement, 0))
+                account.name = String(describing: String(cString: sqlite3_column_text(statement, 1)))
+            }
+            
+        } else {
+            print("Query Prep Failed")
+        }
+        
+        return account
+    
     }
 }

@@ -19,11 +19,22 @@ class ShowAccountViewController: UIViewController {
     @IBOutlet weak var totalValueView: UIView!
     @IBOutlet weak var accountName: UILabel!
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if self.id != -1
+        {
+            let account = database.db.getAccount(id: self.id)
+            self.name = account.name
+        }
+        
+        accountName.text = self.name
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        accountName.text = name
-
+        accountName.text = self.name
         // Do any additional setup after loading the view.
         // STYLES
         totalValueView.layer.cornerRadius = 13
@@ -34,14 +45,13 @@ class ShowAccountViewController: UIViewController {
         _ = navigationController?.popViewController(animated: true)
     }
     
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "editAccountSegue" {
+            let editView = segue.destination as! EditAccountViewController
+            editView.id = self.id
+            editView.name = self.name
+        }
     }
-    */
 
 }
