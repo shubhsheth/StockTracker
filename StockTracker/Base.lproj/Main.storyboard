@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -49,88 +50,79 @@
                                     <constraint firstItem="ays-xD-Tmm" firstAttribute="top" secondItem="F9V-Vl-Qoo" secondAttribute="bottom" constant="16" id="sMC-7x-xJ1"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="xXc-Ta-lG0">
-                                <rect key="frame" x="16" y="317.5" width="382" height="60"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ru6-2Z-cvf">
-                                        <rect key="frame" x="0.0" y="0.0" width="183" height="60"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                        <state key="normal" title="Deposit"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="13"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gnS-gR-Qib">
-                                        <rect key="frame" x="199" y="0.0" width="183" height="60"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                        <state key="normal" title="Withdraw"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="13"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
-                                </subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IyP-gC-vlc">
+                                <rect key="frame" x="16" y="376" width="382" height="249"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="E94-RX-KoN"/>
+                                    <constraint firstAttribute="height" constant="249" id="5V3-pm-KnX"/>
                                 </constraints>
-                            </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Qn-9f-xYD">
-                                <rect key="frame" x="16" y="409.5" width="382" height="60"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="bRh-yQ-chr"/>
-                                </constraints>
-                                <state key="normal" title="Close Account">
-                                    <color key="titleColor" systemColor="systemRedColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="account-trade-cell" id="fdc-Re-Vl9">
+                                        <rect key="frame" x="0.0" y="24.5" width="382" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fdc-Re-Vl9" id="Ob4-WU-mtM">
+                                            <rect key="frame" x="0.0" y="0.0" width="382" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V8h-lx-PCg">
+                                <rect key="frame" x="341" y="333.5" width="57" height="22"/>
+                                <state key="normal" title=" Add" image="plus.circle" catalog="system">
+                                    <color key="titleColor" name="AccentColor"/>
                                 </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="13"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="closeAccount:" destination="Ruz-2V-pdg" eventType="touchUpInside" id="Fq3-GN-N4d"/>
+                                    <action selector="addAccountTrade:" destination="Ruz-2V-pdg" eventType="touchUpInside" id="5AA-qY-dGi"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recent Trades" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NIa-G5-hl8">
+                                <rect key="frame" x="16" y="333.5" width="151.5" height="26.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="26.5" id="Ydz-XR-z9a"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="rsC-pO-33K"/>
                         <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="rsC-pO-33K" firstAttribute="trailing" secondItem="IyP-gC-vlc" secondAttribute="trailing" constant="16" id="34x-jS-Puv"/>
                             <constraint firstItem="uMi-yA-MJI" firstAttribute="top" secondItem="8yB-kW-dHa" secondAttribute="bottom" constant="32" id="8I4-G4-dr5"/>
                             <constraint firstItem="8yB-kW-dHa" firstAttribute="leading" secondItem="rsC-pO-33K" secondAttribute="leading" constant="16" id="8xM-bo-a6A"/>
-                            <constraint firstItem="rsC-pO-33K" firstAttribute="trailing" secondItem="2Qn-9f-xYD" secondAttribute="trailing" constant="16" id="EUG-J1-wJV"/>
-                            <constraint firstItem="xXc-Ta-lG0" firstAttribute="top" secondItem="uMi-yA-MJI" secondAttribute="bottom" constant="16" id="MjU-pk-wau"/>
-                            <constraint firstItem="2Qn-9f-xYD" firstAttribute="top" secondItem="xXc-Ta-lG0" secondAttribute="bottom" constant="32" id="Rst-1p-sGA"/>
-                            <constraint firstItem="xXc-Ta-lG0" firstAttribute="leading" secondItem="rsC-pO-33K" secondAttribute="leading" constant="16" id="SEW-Vb-CxE"/>
+                            <constraint firstItem="IyP-gC-vlc" firstAttribute="leading" secondItem="rsC-pO-33K" secondAttribute="leading" constant="16" id="AhD-bO-ZB0"/>
+                            <constraint firstItem="rsC-pO-33K" firstAttribute="trailing" secondItem="V8h-lx-PCg" secondAttribute="trailing" constant="16" id="Gwl-xT-WCb"/>
+                            <constraint firstItem="NIa-G5-hl8" firstAttribute="leading" secondItem="rsC-pO-33K" secondAttribute="leading" constant="16" id="Hsg-BB-Srh"/>
+                            <constraint firstItem="V8h-lx-PCg" firstAttribute="top" secondItem="uMi-yA-MJI" secondAttribute="bottom" constant="32" id="V56-iy-W5e"/>
                             <constraint firstItem="8yB-kW-dHa" firstAttribute="top" secondItem="rsC-pO-33K" secondAttribute="top" constant="45" id="XCc-oE-FhN"/>
+                            <constraint firstItem="NIa-G5-hl8" firstAttribute="top" secondItem="uMi-yA-MJI" secondAttribute="bottom" constant="32" id="dKU-q2-o9n"/>
                             <constraint firstItem="rsC-pO-33K" firstAttribute="trailing" secondItem="8yB-kW-dHa" secondAttribute="trailing" constant="16" id="dfs-Gj-m0o"/>
-                            <constraint firstItem="2Qn-9f-xYD" firstAttribute="leading" secondItem="rsC-pO-33K" secondAttribute="leading" constant="16" id="ee1-ql-dld"/>
                             <constraint firstItem="uMi-yA-MJI" firstAttribute="leading" secondItem="rsC-pO-33K" secondAttribute="leading" constant="16" id="mUd-2M-IaJ"/>
-                            <constraint firstItem="rsC-pO-33K" firstAttribute="trailing" secondItem="xXc-Ta-lG0" secondAttribute="trailing" constant="16" id="wuB-SR-EaB"/>
+                            <constraint firstItem="IyP-gC-vlc" firstAttribute="top" secondItem="NIa-G5-hl8" secondAttribute="bottom" constant="16" id="ngl-Wx-5xe"/>
                             <constraint firstItem="rsC-pO-33K" firstAttribute="trailing" secondItem="uMi-yA-MJI" secondAttribute="trailing" constant="16" id="yMD-O3-kzV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qNj-x1-vai">
-                        <barButtonItem key="rightBarButtonItem" title="Edit" id="7L4-Vm-am8">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" image="ellipsis.circle" catalog="system" id="7L4-Vm-am8">
                             <connections>
-                                <action selector="editAccount:" destination="Ruz-2V-pdg" id="DtA-GI-7se"/>
+                                <action selector="optionsAccount:" destination="Ruz-2V-pdg" id="aLt-Mh-dT0"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="accountName" destination="8yB-kW-dHa" id="FdE-gC-mcO"/>
                         <outlet property="totalValueView" destination="uMi-yA-MJI" id="94G-Lj-A8P"/>
+                        <outlet property="tradesView" destination="IyP-gC-vlc" id="Fa6-6I-sBx"/>
                         <segue destination="xtR-dR-02p" kind="show" identifier="editAccountSegue" id="Bvt-w0-x0h"/>
+                        <segue destination="OnZ-nF-eYE" kind="show" identifier="showAccountTradeSegue" id="W7y-Rv-DPL"/>
+                        <segue destination="VUi-hP-Qi3" kind="show" identifier="createAccountTradeSegue" id="dOh-7u-Fti"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zKd-J7-54o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2686" y="-1256"/>
+            <point key="canvasLocation" x="-1923.1884057971015" y="1630.5803571428571"/>
         </scene>
         <!--Edit Account View Controller-->
         <scene sceneID="4CJ-WI-1AX">
@@ -176,7 +168,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jGC-ce-8kx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2686" y="-496"/>
+            <point key="canvasLocation" x="-946" y="1631"/>
         </scene>
         <!--All Accounts-->
         <scene sceneID="bVf-x0-gfk">
@@ -215,7 +207,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="46N-ua-gSw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1648" y="-741"/>
+            <point key="canvasLocation" x="-946" y="771"/>
         </scene>
         <!--Home-->
         <scene sceneID="Mbe-Uh-fw5">
@@ -473,7 +465,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="goi-fp-YNn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="640.57971014492762" y="-1100.2232142857142"/>
+            <point key="canvasLocation" x="-5284" y="771"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="0y1-jc-qCf">
@@ -492,7 +484,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="apG-bu-QFW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1110" y="-147"/>
+            <point key="canvasLocation" x="-3030" y="-171"/>
         </scene>
         <!--Edit Trade View Controller-->
         <scene sceneID="k7q-0K-5Tf">
@@ -523,13 +515,8 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Account" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4AD-kv-Xo0">
-                                <rect key="frame" x="16" y="349" width="382" height="34"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <datePicker contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="hYQ-oL-OlF">
-                                <rect key="frame" x="16" y="398" width="382" height="51"/>
+                                <rect key="frame" x="16" y="352" width="382" height="51"/>
                             </datePicker>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ihi-0t-H0x"/>
@@ -539,16 +526,13 @@
                             <constraint firstItem="hYQ-oL-OlF" firstAttribute="leading" secondItem="ihi-0t-H0x" secondAttribute="leading" constant="16" id="371-bk-CC0"/>
                             <constraint firstItem="ihi-0t-H0x" firstAttribute="trailing" secondItem="NLc-QR-Yul" secondAttribute="trailing" constant="16" id="4ac-4r-g06"/>
                             <constraint firstItem="ihi-0t-H0x" firstAttribute="trailing" secondItem="opR-a8-yY7" secondAttribute="trailing" constant="16" id="7YQ-8o-nmX"/>
+                            <constraint firstItem="hYQ-oL-OlF" firstAttribute="top" secondItem="oT0-WM-Xsx" secondAttribute="bottom" constant="16" id="9r0-SO-nHq"/>
                             <constraint firstItem="ihi-0t-H0x" firstAttribute="trailing" secondItem="0k6-0s-xeL" secondAttribute="trailing" constant="16" id="ADk-R7-qNt"/>
-                            <constraint firstItem="ihi-0t-H0x" firstAttribute="trailing" secondItem="4AD-kv-Xo0" secondAttribute="trailing" constant="16" id="Ahx-TR-gmw"/>
-                            <constraint firstItem="4AD-kv-Xo0" firstAttribute="leading" secondItem="ihi-0t-H0x" secondAttribute="leading" constant="16" id="HQX-kh-Ich"/>
                             <constraint firstItem="NLc-QR-Yul" firstAttribute="leading" secondItem="ihi-0t-H0x" secondAttribute="leading" constant="16" id="I21-Dr-Eri"/>
-                            <constraint firstItem="4AD-kv-Xo0" firstAttribute="top" secondItem="oT0-WM-Xsx" secondAttribute="bottom" constant="16" id="MBx-Lp-12Q"/>
                             <constraint firstItem="NLc-QR-Yul" firstAttribute="top" secondItem="opR-a8-yY7" secondAttribute="bottom" constant="32" id="MzK-cr-XWp"/>
                             <constraint firstItem="0k6-0s-xeL" firstAttribute="leading" secondItem="ihi-0t-H0x" secondAttribute="leading" constant="16" id="NV7-x8-uOL"/>
                             <constraint firstItem="ihi-0t-H0x" firstAttribute="trailing" secondItem="oT0-WM-Xsx" secondAttribute="trailing" constant="16" id="TuB-Mn-IkO"/>
                             <constraint firstItem="opR-a8-yY7" firstAttribute="leading" secondItem="ihi-0t-H0x" secondAttribute="leading" constant="16" id="Zj8-Jw-fP3"/>
-                            <constraint firstItem="hYQ-oL-OlF" firstAttribute="top" secondItem="4AD-kv-Xo0" secondAttribute="bottom" constant="16" id="aM2-yh-COC"/>
                             <constraint firstItem="oT0-WM-Xsx" firstAttribute="leading" secondItem="ihi-0t-H0x" secondAttribute="leading" constant="16" id="g7c-6O-6Qh"/>
                             <constraint firstItem="oT0-WM-Xsx" firstAttribute="top" secondItem="0k6-0s-xeL" secondAttribute="bottom" constant="16" id="rlv-Az-rwd"/>
                             <constraint firstItem="opR-a8-yY7" firstAttribute="top" secondItem="ihi-0t-H0x" secondAttribute="top" constant="45" id="z5U-IN-Oa8"/>
@@ -562,7 +546,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="tradeAccountField" destination="4AD-kv-Xo0" id="S0o-b5-G59"/>
                         <outlet property="tradeDateField" destination="hYQ-oL-OlF" id="WQi-W9-FMg"/>
                         <outlet property="tradePriceField" destination="oT0-WM-Xsx" id="6G7-mE-T18"/>
                         <outlet property="tradeQuantityField" destination="0k6-0s-xeL" id="276-69-2XE"/>
@@ -571,7 +554,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W6G-Hk-RNE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2685.507246376812" y="1176.5625"/>
+            <point key="canvasLocation" x="-1923" y="2472"/>
         </scene>
         <!--Recent Trades-->
         <scene sceneID="aor-Dg-wK0">
@@ -605,12 +588,11 @@
                     </navigationItem>
                     <connections>
                         <segue destination="OnZ-nF-eYE" kind="show" identifier="showTradeSegue" id="g9M-9B-R1b"/>
-                        <segue destination="VUi-hP-Qi3" kind="show" identifier="addTradeSegue" id="MZ8-bT-aPh"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D9M-br-6Bx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1648" y="748"/>
+            <point key="canvasLocation" x="-3029" y="771"/>
         </scene>
         <!--Show Trade View Controller-->
         <scene sceneID="xr7-uE-SX1">
@@ -715,7 +697,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zhh-GG-LuX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2685.507246376812" y="363.61607142857139"/>
+            <point key="canvasLocation" x="-3030" y="2472"/>
         </scene>
         <!--Accounts-->
         <scene sceneID="36x-o6-GXr">
@@ -734,7 +716,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Mh-h9-TAy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="640.57971014492762" y="-372.32142857142856"/>
+            <point key="canvasLocation" x="-1923" y="771"/>
         </scene>
         <!--Trades-->
         <scene sceneID="Gcd-DF-ZNu">
@@ -753,17 +735,23 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wuO-HY-9p2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="640.57971014492762" y="363.61607142857139"/>
+            <point key="canvasLocation" x="-4017" y="771"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="j9Y-Y9-QDp"/>
+        <segue reference="W7y-Rv-DPL"/>
+        <segue reference="dOh-7u-Fti"/>
         <segue reference="Bvt-w0-x0h"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="dollarsign.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="ellipsis.circle" catalog="system" width="128" height="121"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="person.2.fill" catalog="system" width="128" height="80"/>
+        <image name="plus.circle" catalog="system" width="128" height="121"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

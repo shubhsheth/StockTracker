@@ -183,7 +183,7 @@ class DB {
     func insertTrade(date:String, ticker:String, price:Double, quantity:Double, type:String, account:Int, fees:Double) {
         let query = "INSERT INTO trades (id, date, ticker, price, quantity, type, account, fees) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
         var statement:OpaquePointer? = nil
-        
+        print("Add Trade for \(Int32(account))")
         var isEmpty = false
         if getTrades().isEmpty {
             isEmpty = true
@@ -240,6 +240,37 @@ class DB {
             print("Query Prep Failed")
         }
         
+        return list
+    }
+    
+    func getTradesByAccount(account:Int) -> [Trade] {
+        
+        print("Trades Sent By Account \(account)")
+        var list = [Trade]()
+
+        let query = "SELECT * FROM trades WHERE account=?;"
+        var statement:OpaquePointer? = nil
+
+        if sqlite3_prepare_v2(self.db, query, -1, &statement, nil) == SQLITE_OK {
+            sqlite3_bind_int(statement,1, Int32(account))
+
+            while sqlite3_step(statement) == SQLITE_ROW {
+                let model = Trade()
+                model.id = Int(sqlite3_column_int(statement, 0))
+                model.date = String(describing: String(cString: sqlite3_column_text(statement, 1)))
+                model.ticker = String(describing: String(cString: sqlite3_column_text(statement, 2)))
+                model.price = Double(sqlite3_column_double(statement, 3))
+                model.quantity = Double(sqlite3_column_double(statement, 4))
+                model.type = String(describing: String(cString: sqlite3_column_text(statement, 5)))
+                model.account = Int(sqlite3_column_int(statement, 6))
+                model.fees = Double(sqlite3_column_double(statement, 7))
+                
+                list.append(model)
+            }
+            
+        } else {
+            print("Query Prep Failed")
+        }
         return list
     }
     

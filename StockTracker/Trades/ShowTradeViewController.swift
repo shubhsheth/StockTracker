@@ -43,7 +43,7 @@ class ShowTradeViewController: UIViewController {
             self.account = trade.account
             self.fees = trade.fees
         }
-        
+
         tradeTickerLabel.text = self.ticker
         tradePriceLabel.text = "$\(self.price)"
         tradeQuantityLabel.text = "x\(self.quantity)"

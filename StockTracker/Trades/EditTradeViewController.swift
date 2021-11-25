@@ -12,7 +12,6 @@ class EditTradeViewController: UIViewController {
     @IBOutlet weak var tradeTickerField: UITextField!
     @IBOutlet weak var tradeQuantityField: UITextField!
     @IBOutlet weak var tradePriceField: UITextField!
-    @IBOutlet weak var tradeAccountField: UITextField!
     @IBOutlet weak var tradeDateField: UIDatePicker!
     
     var id: Int = -1
@@ -35,7 +34,6 @@ class EditTradeViewController: UIViewController {
             tradeTickerField.text = ticker
             tradePriceField.text = String(price)
             tradeQuantityField.text = String(quantity)
-            tradeAccountField.text = String("ABC")
             tradeDateField.date = dateFormatter.date(from:date)!
         }
     }
@@ -47,12 +45,13 @@ class EditTradeViewController: UIViewController {
         self.ticker = tradeTickerField.text!
         self.price = Double(tradePriceField.text!) ?? 0.0
         self.quantity = Double(tradeQuantityField.text!) ?? 0.0
-        self.account = Int(tradeAccountField.text!) ?? 0
         self.date = formatter.string(from: tradeDateField.date)
         
-        if id != -1 {
+        if id == -1 {
+            print("new trade")
             database.db.insertTrade(date: date, ticker: ticker, price: price, quantity: quantity, type: "", account: account, fees: 0.00)
         } else {
+            print("edit trade")
             database.db.updateTrade(id: id, date: date, ticker: ticker, price: price, quantity: quantity, type: type, account: account, fees: fees)
         }
         _ = navigationController?.popViewController(animated: true)
