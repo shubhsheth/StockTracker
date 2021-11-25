@@ -15,6 +15,10 @@ class EditTradeViewController: UIViewController {
     @IBOutlet weak var tradeDateField: UIDatePicker!
     @IBOutlet weak var tradeFeesField: UITextField!
     
+    @IBAction func saveTradeButton(_ sender: Any) {
+        self.saveTrade()
+    }
+    
     var id: Int = -1
     var date: String = ""
     var ticker: String = ""
@@ -40,7 +44,7 @@ class EditTradeViewController: UIViewController {
         }
     }
     
-    @IBAction func tradeSave(_ sender: Any) {
+    func saveTrade() {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         
