@@ -9,10 +9,6 @@ import UIKit
 
 class TradesTableViewController: UITableViewController {
 
-    @IBAction func addTrade(_ sender: Any) {
-        performSegue(withIdentifier: "addTradeSegue", sender: self)
-    }
-
     var trades = database.db.getTrades()
     var selectedTrade = Trade()
 
@@ -58,8 +54,6 @@ class TradesTableViewController: UITableViewController {
     }
 
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showTradeSegue" {
             let detailsView = segue.destination as! ShowTradeViewController

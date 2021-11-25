@@ -508,16 +508,24 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Quantity" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0k6-0s-xeL">
                                 <rect key="frame" x="16" y="249" width="382" height="34"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oT0-WM-Xsx">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Price" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oT0-WM-Xsx">
                                 <rect key="frame" x="16" y="299" width="382" height="34"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <datePicker contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="hYQ-oL-OlF">
+                                <rect key="frame" x="16" y="399" width="382" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="4hx-w8-GgO"/>
+                                </constraints>
+                            </datePicker>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Fees" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aRk-CQ-3PP">
+                                <rect key="frame" x="16" y="349" width="382" height="34"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <datePicker contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="hYQ-oL-OlF">
-                                <rect key="frame" x="16" y="352" width="382" height="51"/>
-                            </datePicker>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ihi-0t-H0x"/>
                         <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
@@ -526,14 +534,17 @@
                             <constraint firstItem="hYQ-oL-OlF" firstAttribute="leading" secondItem="ihi-0t-H0x" secondAttribute="leading" constant="16" id="371-bk-CC0"/>
                             <constraint firstItem="ihi-0t-H0x" firstAttribute="trailing" secondItem="NLc-QR-Yul" secondAttribute="trailing" constant="16" id="4ac-4r-g06"/>
                             <constraint firstItem="ihi-0t-H0x" firstAttribute="trailing" secondItem="opR-a8-yY7" secondAttribute="trailing" constant="16" id="7YQ-8o-nmX"/>
-                            <constraint firstItem="hYQ-oL-OlF" firstAttribute="top" secondItem="oT0-WM-Xsx" secondAttribute="bottom" constant="16" id="9r0-SO-nHq"/>
                             <constraint firstItem="ihi-0t-H0x" firstAttribute="trailing" secondItem="0k6-0s-xeL" secondAttribute="trailing" constant="16" id="ADk-R7-qNt"/>
                             <constraint firstItem="NLc-QR-Yul" firstAttribute="leading" secondItem="ihi-0t-H0x" secondAttribute="leading" constant="16" id="I21-Dr-Eri"/>
+                            <constraint firstItem="hYQ-oL-OlF" firstAttribute="top" secondItem="aRk-CQ-3PP" secondAttribute="bottom" constant="16" id="Mdi-rW-AA4"/>
                             <constraint firstItem="NLc-QR-Yul" firstAttribute="top" secondItem="opR-a8-yY7" secondAttribute="bottom" constant="32" id="MzK-cr-XWp"/>
                             <constraint firstItem="0k6-0s-xeL" firstAttribute="leading" secondItem="ihi-0t-H0x" secondAttribute="leading" constant="16" id="NV7-x8-uOL"/>
                             <constraint firstItem="ihi-0t-H0x" firstAttribute="trailing" secondItem="oT0-WM-Xsx" secondAttribute="trailing" constant="16" id="TuB-Mn-IkO"/>
                             <constraint firstItem="opR-a8-yY7" firstAttribute="leading" secondItem="ihi-0t-H0x" secondAttribute="leading" constant="16" id="Zj8-Jw-fP3"/>
+                            <constraint firstItem="aRk-CQ-3PP" firstAttribute="leading" secondItem="ihi-0t-H0x" secondAttribute="leading" constant="16" id="dHF-xe-yMu"/>
+                            <constraint firstItem="ihi-0t-H0x" firstAttribute="trailing" secondItem="aRk-CQ-3PP" secondAttribute="trailing" constant="16" id="dqu-2S-BYw"/>
                             <constraint firstItem="oT0-WM-Xsx" firstAttribute="leading" secondItem="ihi-0t-H0x" secondAttribute="leading" constant="16" id="g7c-6O-6Qh"/>
+                            <constraint firstItem="aRk-CQ-3PP" firstAttribute="top" secondItem="oT0-WM-Xsx" secondAttribute="bottom" constant="16" id="gUU-s4-CRq"/>
                             <constraint firstItem="oT0-WM-Xsx" firstAttribute="top" secondItem="0k6-0s-xeL" secondAttribute="bottom" constant="16" id="rlv-Az-rwd"/>
                             <constraint firstItem="opR-a8-yY7" firstAttribute="top" secondItem="ihi-0t-H0x" secondAttribute="top" constant="45" id="z5U-IN-Oa8"/>
                         </constraints>
@@ -547,6 +558,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tradeDateField" destination="hYQ-oL-OlF" id="WQi-W9-FMg"/>
+                        <outlet property="tradeFeesField" destination="aRk-CQ-3PP" id="3VO-MK-NkR"/>
                         <outlet property="tradePriceField" destination="oT0-WM-Xsx" id="6G7-mE-T18"/>
                         <outlet property="tradeQuantityField" destination="0k6-0s-xeL" id="276-69-2XE"/>
                         <outlet property="tradeTickerField" destination="NLc-QR-Yul" id="tqw-BV-XCg"/>
@@ -579,13 +591,7 @@
                             <outlet property="delegate" destination="VE2-dR-1Ai" id="Htb-Mu-W3P"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Recent Trades" id="GRA-M1-ajX">
-                        <barButtonItem key="rightBarButtonItem" title="+ Add" id="2bh-7Z-mtS">
-                            <connections>
-                                <action selector="addTrade:" destination="VE2-dR-1Ai" id="mxT-sk-vxS"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Recent Trades" id="GRA-M1-ajX"/>
                     <connections>
                         <segue destination="OnZ-nF-eYE" kind="show" identifier="showTradeSegue" id="g9M-9B-R1b"/>
                     </connections>
@@ -646,24 +652,6 @@
                                     <constraint firstAttribute="trailing" secondItem="F0k-y1-K4j" secondAttribute="trailing" constant="16" id="zZs-f4-1el"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8k0-g2-2ro">
-                                <rect key="frame" x="16" y="333.5" width="382" height="60"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="pRt-y3-xuX"/>
-                                </constraints>
-                                <state key="normal" title="Delete Trade">
-                                    <color key="titleColor" systemColor="systemRedColor"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="13"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="deleteTrade:" destination="OnZ-nF-eYE" eventType="touchUpInside" id="gBQ-7f-5pP"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iMV-bO-5pP"/>
                         <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
@@ -671,18 +659,15 @@
                             <constraint firstItem="iMV-bO-5pP" firstAttribute="trailing" secondItem="2Sk-Ga-f8E" secondAttribute="trailing" constant="16" id="56x-gI-Rxz"/>
                             <constraint firstItem="2Sk-Ga-f8E" firstAttribute="leading" secondItem="iMV-bO-5pP" secondAttribute="leading" constant="16" id="8bd-7e-zSN"/>
                             <constraint firstItem="2Sk-Ga-f8E" firstAttribute="top" secondItem="iMV-bO-5pP" secondAttribute="top" constant="45" id="976-zC-DYk"/>
-                            <constraint firstItem="8k0-g2-2ro" firstAttribute="leading" secondItem="iMV-bO-5pP" secondAttribute="leading" constant="16" id="9Ce-dZ-aXx"/>
                             <constraint firstItem="iMV-bO-5pP" firstAttribute="trailing" secondItem="GHb-Ja-Ekl" secondAttribute="trailing" constant="16" id="MiF-LY-6n9"/>
-                            <constraint firstItem="8k0-g2-2ro" firstAttribute="top" secondItem="GHb-Ja-Ekl" secondAttribute="bottom" constant="32" id="gPd-jV-0wZ"/>
-                            <constraint firstItem="iMV-bO-5pP" firstAttribute="trailing" secondItem="8k0-g2-2ro" secondAttribute="trailing" constant="16" id="hS0-sg-yWH"/>
                             <constraint firstItem="GHb-Ja-Ekl" firstAttribute="top" secondItem="2Sk-Ga-f8E" secondAttribute="bottom" constant="32" id="sQz-C9-IbQ"/>
                             <constraint firstItem="GHb-Ja-Ekl" firstAttribute="leading" secondItem="iMV-bO-5pP" secondAttribute="leading" constant="16" id="uyE-0X-uEw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fjc-pe-3oz">
-                        <barButtonItem key="rightBarButtonItem" title="Edit" id="TqD-Yi-EhP">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" image="ellipsis.circle" catalog="system" id="TqD-Yi-EhP">
                             <connections>
-                                <action selector="editTrade:" destination="OnZ-nF-eYE" id="8q8-Fw-ePV"/>
+                                <action selector="optionsTrade:" destination="OnZ-nF-eYE" id="YCe-jO-vSf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -740,7 +725,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="W7y-Rv-DPL"/>
-        <segue reference="dOh-7u-Fti"/>
+        <segue reference="j9Y-Y9-QDp"/>
         <segue reference="Bvt-w0-x0h"/>
     </inferredMetricsTieBreakers>
     <resources>
@@ -754,9 +739,6 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

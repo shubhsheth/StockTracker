@@ -13,6 +13,7 @@ class EditTradeViewController: UIViewController {
     @IBOutlet weak var tradeQuantityField: UITextField!
     @IBOutlet weak var tradePriceField: UITextField!
     @IBOutlet weak var tradeDateField: UIDatePicker!
+    @IBOutlet weak var tradeFeesField: UITextField!
     
     var id: Int = -1
     var date: String = ""
@@ -34,6 +35,7 @@ class EditTradeViewController: UIViewController {
             tradeTickerField.text = ticker
             tradePriceField.text = String(price)
             tradeQuantityField.text = String(quantity)
+            tradeFeesField.text = String(fees)
             tradeDateField.date = dateFormatter.date(from:date)!
         }
     }
@@ -43,13 +45,14 @@ class EditTradeViewController: UIViewController {
         formatter.dateFormat = "yyyy-MM-dd"
         
         self.ticker = tradeTickerField.text!
-        self.price = Double(tradePriceField.text!) ?? 0.0
-        self.quantity = Double(tradeQuantityField.text!) ?? 0.0
+        self.price = Double(tradePriceField.text!) ?? 0.00
+        self.quantity = Double(tradeQuantityField.text!) ?? 0.00
+        self.fees = Double(tradeFeesField.text!) ?? 0.00
         self.date = formatter.string(from: tradeDateField.date)
         
         if id == -1 {
             print("new trade")
-            database.db.insertTrade(date: date, ticker: ticker, price: price, quantity: quantity, type: "", account: account, fees: 0.00)
+            database.db.insertTrade(date: date, ticker: ticker, price: price, quantity: quantity, type: "", account: account, fees: fees)
         } else {
             print("edit trade")
             database.db.updateTrade(id: id, date: date, ticker: ticker, price: price, quantity: quantity, type: type, account: account, fees: fees)

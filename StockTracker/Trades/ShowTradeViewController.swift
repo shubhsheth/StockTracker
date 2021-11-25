@@ -18,14 +18,28 @@ class ShowTradeViewController: UIViewController {
     var account: Int = 0
     var fees: Double = 0.0
     
+    @IBAction func optionsTrade(_ sender: Any) {
+        let alert = UIAlertController(title: self.ticker, message: "", preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Edit", style: .default , handler:{ (UIAlertAction)in
+            self.editTrade()
+        }))
+
+        alert.addAction(UIAlertAction(title: "Delete Trade", style: .destructive , handler:{ (UIAlertAction)in
+            self.deleteTrade()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler:{ (UIAlertAction)in
+            print("User click Dismiss button")
+        }))
+
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     @IBOutlet weak var tradeTickerLabel: UILabel!
     @IBOutlet weak var tradePriceLabel: UILabel!
     @IBOutlet weak var tradeQuantityLabel: UILabel!
-    @IBOutlet weak var tradeDateLabel: UILabel!    
-    
-    @IBAction func editTrade(_ sender: Any) {
-        performSegue(withIdentifier: "editTradeSegue", sender: self)
-    }
+    @IBOutlet weak var tradeDateLabel: UILabel!
     
     @IBOutlet weak var tradeInfoView: UIView!
 
@@ -62,11 +76,6 @@ class ShowTradeViewController: UIViewController {
         tradeInfoView.layer.cornerRadius = 13
     }
     
-    @IBAction func deleteTrade(_ sender: Any) {
-        database.db.deleteTrade(id: self.id)
-        _ = navigationController?.popViewController(animated: true)
-    }
-    
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "editTradeSegue" {
@@ -80,6 +89,15 @@ class ShowTradeViewController: UIViewController {
             editView.account = self.account
             editView.fees = self.fees
         }
+    }
+    
+    func editTrade() {
+        performSegue(withIdentifier: "editTradeSegue", sender: self)
+    }
+    
+    func deleteTrade() {
+        database.db.deleteTrade(id: self.id)
+        _ = navigationController?.popViewController(animated: true)
     }
     
 }
