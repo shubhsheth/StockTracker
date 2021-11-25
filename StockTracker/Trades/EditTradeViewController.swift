@@ -31,11 +31,13 @@ class EditTradeViewController: UIViewController {
         dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
         dateFormatter.dateFormat = "yyyy-MM-dd"
 
-        tradeTickerField.text = ticker
-        tradePriceField.text = String(price)
-        tradeQuantityField.text = String(quantity)
-        tradeAccountField.text = String("ABC")
-        tradeDateField.date = dateFormatter.date(from:date)!
+        if id != -1 {
+            tradeTickerField.text = ticker
+            tradePriceField.text = String(price)
+            tradeQuantityField.text = String(quantity)
+            tradeAccountField.text = String("ABC")
+            tradeDateField.date = dateFormatter.date(from:date)!
+        }
     }
     
     @IBAction func tradeSave(_ sender: Any) {
