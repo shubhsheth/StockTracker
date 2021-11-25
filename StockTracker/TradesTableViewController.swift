@@ -12,20 +12,24 @@ class TradesTableViewController: UITableViewController {
     @IBAction func addTrade(_ sender: Any) {
         performSegue(withIdentifier: "addTradeSegue", sender: self)
     }
-    
-    var trades = ["Trade 1", "Trade 2", "Trade 3"]
-    
+
+    var trades = database.db.getTrades()
+    var selectedTrade = Trade()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Deletes empty cells
         tableView.tableFooterView = UIView()
-        
-
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        trades = database.db.getTrades()
+        self.tableView.reloadData()
     }
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -43,12 +47,13 @@ class TradesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "trade-cell", for: indexPath)
 
-        cell.textLabel?.text = trades[indexPath.row]
+        cell.textLabel?.text = trades[indexPath.row].ticker
 
         return cell
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedTrade = trades[indexPath.row]
         performSegue(withIdentifier: "showTradeSegue", sender: self)
     }
 
@@ -56,8 +61,17 @@ class TradesTableViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "showTradeSegue" {
+            let detailsView = segue.destination as! ShowTradeViewController
+            detailsView.id = selectedTrade.id
+            detailsView.date = selectedTrade.date
+            detailsView.ticker = selectedTrade.ticker
+            detailsView.price = selectedTrade.price
+            detailsView.quantity = selectedTrade.quantity
+            detailsView.type = selectedTrade.type
+            detailsView.account = selectedTrade.account
+            detailsView.fees = selectedTrade.fees
+        }
     }
 
 }

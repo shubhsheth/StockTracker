@@ -529,7 +529,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <datePicker contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="hYQ-oL-OlF">
-                                <rect key="frame" x="16" y="399" width="382" height="51"/>
+                                <rect key="frame" x="16" y="398" width="382" height="51"/>
                             </datePicker>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ihi-0t-H0x"/>
@@ -555,8 +555,19 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ubJ-lQ-vMo">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="F5c-am-emG"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="F5c-am-emG">
+                            <connections>
+                                <action selector="tradeSave:" destination="VUi-hP-Qi3" id="CWW-7k-VaK"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tradeAccountField" destination="4AD-kv-Xo0" id="S0o-b5-G59"/>
+                        <outlet property="tradeDateField" destination="hYQ-oL-OlF" id="WQi-W9-FMg"/>
+                        <outlet property="tradePriceField" destination="oT0-WM-Xsx" id="6G7-mE-T18"/>
+                        <outlet property="tradeQuantityField" destination="0k6-0s-xeL" id="276-69-2XE"/>
+                        <outlet property="tradeTickerField" destination="NLc-QR-Yul" id="tqw-BV-XCg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W6G-Hk-RNE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -667,6 +678,9 @@
                                         <integer key="value" value="13"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="deleteTrade:" destination="OnZ-nF-eYE" eventType="touchUpInside" id="gBQ-7f-5pP"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iMV-bO-5pP"/>
@@ -691,7 +705,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="tradeDateLabel" destination="Ncm-x7-t1A" id="ZU6-zC-0X9"/>
                         <outlet property="tradeInfoView" destination="GHb-Ja-Ekl" id="Rez-eC-MUR"/>
+                        <outlet property="tradePriceLabel" destination="QQd-fm-FEN" id="r6n-g6-gz3"/>
+                        <outlet property="tradeQuantityLabel" destination="xYK-M7-Dji" id="ejk-Pj-sJV"/>
+                        <outlet property="tradeTickerLabel" destination="2Sk-Ga-f8E" id="Ods-0Y-y0Z"/>
                         <segue destination="VUi-hP-Qi3" kind="show" identifier="editTradeSegue" id="j9Y-Y9-QDp"/>
                     </connections>
                 </viewController>
