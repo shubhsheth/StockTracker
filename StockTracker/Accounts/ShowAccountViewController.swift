@@ -143,16 +143,35 @@ class ShowAccountViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func updateTotalValue() {
-        var total:Double = 0.00
+        var totalAmount:Double = 0.00
+        var stocks = [String:Int]()
+        
         let fundings = database.db.getFundingsByAccount(account: self.id)
         for funding in fundings {
             if funding.type == "Deposit" {
-                total += funding.amount
+                totalAmount += funding.amount
             } else {
-                total -= funding.amount
+                totalAmount -= funding.amount
             }
         }
         
-        accountTotalValue.text = "$\(total)"
+        let trades = database.db.getTradesByAccount(account: self.id)
+        for trade in trades {
+            if !stocks.keys.contains(trade.ticker) {
+                stocks[trade.ticker] = 0
+            }
+            
+            if trade.type == "Buy" {
+                stocks[trade.ticker]! += 1
+                totalAmount -= (trade.price * trade.quantity)
+                totalAmount -= trade.fees
+            } else {
+                stocks[trade.ticker]! -= 1
+                totalAmount += (trade.price * trade.quantity)
+                totalAmount -= trade.fees
+            }
+        }
+        
+        accountTotalValue.text = "$\(totalAmount)"
     }
 }

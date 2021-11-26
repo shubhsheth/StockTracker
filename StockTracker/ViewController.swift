@@ -21,6 +21,9 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var portfolioBreakdownView: UIView!
     @IBOutlet weak var latestTradesView: UITableView!
     
+    @IBOutlet weak var totalHoldingsLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.`
@@ -32,6 +35,48 @@ class HomeViewController: UIViewController {
         dailyTrendView?.layer.cornerRadius = 13
         portfolioBreakdownView?.layer.cornerRadius = 13
         latestTradesView?.layer.cornerRadius = 13
+        
+        // Calculations
+        calculateTotalHoldings()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        calculateTotalHoldings()
+    }
+    
+    func calculateTotalHoldings() {
+        var totalAmount:Double = 0.00
+        var stocks = [String:Int]()
+        
+        let fundings = database.db.getFundings()
+        for funding in fundings {
+            if funding.type == "Deposit" {
+                totalAmount += funding.amount
+            } else {
+                totalAmount -= funding.amount
+            }
+        }
+        
+        let trades = database.db.getTrades()
+        for trade in trades {
+            if !stocks.keys.contains(trade.ticker) {
+                stocks[trade.ticker] = 0
+            }
+            
+            if trade.type == "Buy" {
+                stocks[trade.ticker]! += 1
+                totalAmount -= (trade.price * trade.quantity)
+                totalAmount -= trade.fees
+            } else {
+                stocks[trade.ticker]! -= 1
+                totalAmount += (trade.price * trade.quantity)
+                totalAmount -= trade.fees
+            }
+        }
+        
+        totalHoldingsLabel.text = "$\(totalAmount)"
     }
 
 

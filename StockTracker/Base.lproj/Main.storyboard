@@ -463,6 +463,7 @@
                         <outlet property="latestTradesView" destination="btK-FV-Bn4" id="ifF-va-qF1"/>
                         <outlet property="portfolioBreakdownView" destination="5pG-3t-yB5" id="nZI-Mz-hCr"/>
                         <outlet property="totalGainsView" destination="rDV-8W-i4B" id="smH-OL-bW2"/>
+                        <outlet property="totalHoldingsLabel" destination="0y6-Hd-iaT" id="prs-Bk-PRY"/>
                         <outlet property="totalHoldingsView" destination="kcV-Sm-z5N" id="ZUJ-Ct-jji"/>
                     </connections>
                 </viewController>
