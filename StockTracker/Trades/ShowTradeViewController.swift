@@ -40,6 +40,7 @@ class ShowTradeViewController: UIViewController {
     @IBOutlet weak var tradePriceLabel: UILabel!
     @IBOutlet weak var tradeQuantityLabel: UILabel!
     @IBOutlet weak var tradeDateLabel: UILabel!
+    @IBOutlet weak var tradeTypeLabel: UILabel!
     
     @IBOutlet weak var tradeInfoView: UIView!
 
@@ -56,12 +57,14 @@ class ShowTradeViewController: UIViewController {
             self.type = trade.type
             self.account = trade.account
             self.fees = trade.fees
+            print(self.type)
         }
 
         tradeTickerLabel.text = self.ticker
         tradePriceLabel.text = "$\(self.price)"
         tradeQuantityLabel.text = "x\(self.quantity)"
         tradeDateLabel.text = self.date
+        tradeTypeLabel.text = self.type
     }
     
     override func viewDidLoad() {
@@ -71,6 +74,7 @@ class ShowTradeViewController: UIViewController {
         tradePriceLabel.text = "$\(self.price)"
         tradeQuantityLabel.text = "x\(self.quantity)"
         tradeDateLabel.text = self.date
+        tradeTypeLabel.text = self.type
         // Do any additional setup after loading the view.
         // STYLES
         tradeInfoView.layer.cornerRadius = 13

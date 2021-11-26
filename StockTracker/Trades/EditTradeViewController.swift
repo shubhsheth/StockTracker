@@ -14,17 +14,30 @@ class EditTradeViewController: UIViewController {
     @IBOutlet weak var tradePriceField: UITextField!
     @IBOutlet weak var tradeDateField: UIDatePicker!
     @IBOutlet weak var tradeFeesField: UITextField!
+    @IBOutlet weak var tradeTypeField: UISegmentedControl!
     
     @IBAction func saveTradeButton(_ sender: Any) {
         self.saveTrade()
     }
+    
+    @IBAction func tradeTypeControl(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0
+        {
+            type = "Buy"
+        }
+        else if sender.selectedSegmentIndex == 1
+        {
+            type = "Sell"
+        }
+    }
+    
     
     var id: Int = -1
     var date: String = ""
     var ticker: String = ""
     var price: Double = 0.0
     var quantity: Double = 0.0
-    var type: String = ""
+    var type: String = "Buy"
     var account: Int = 0
     var fees: Double = 0.0
     
@@ -41,6 +54,11 @@ class EditTradeViewController: UIViewController {
             tradeQuantityField.text = String(quantity)
             tradeFeesField.text = String(fees)
             tradeDateField.date = dateFormatter.date(from:date)!
+            if type == "Buy" {
+                tradeTypeField.selectedSegmentIndex = 0
+            } else {
+                tradeTypeField.selectedSegmentIndex = 1
+            }
         }
     }
     
@@ -56,7 +74,7 @@ class EditTradeViewController: UIViewController {
         
         if id == -1 {
             print("new trade")
-            database.db.insertTrade(date: date, ticker: ticker, price: price, quantity: quantity, type: "", account: account, fees: fees)
+            database.db.insertTrade(date: date, ticker: ticker, price: price, quantity: quantity, type: type, account: account, fees: fees)
         } else {
             print("edit trade")
             database.db.updateTrade(id: id, date: date, ticker: ticker, price: price, quantity: quantity, type: type, account: account, fees: fees)

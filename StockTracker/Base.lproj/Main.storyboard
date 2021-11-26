@@ -504,31 +504,41 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ticker Symbol" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NLc-QR-Yul">
-                                <rect key="frame" x="16" y="199" width="382" height="34"/>
+                                <rect key="frame" x="16" y="246" width="382" height="34"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Quantity" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0k6-0s-xeL">
-                                <rect key="frame" x="16" y="249" width="382" height="34"/>
+                                <rect key="frame" x="16" y="296" width="382" height="34"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Price" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oT0-WM-Xsx">
-                                <rect key="frame" x="16" y="299" width="382" height="34"/>
+                                <rect key="frame" x="16" y="346" width="382" height="34"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Fees" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aRk-CQ-3PP">
+                                <rect key="frame" x="16" y="396" width="382" height="34"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="7pB-uM-Bv8">
+                                <rect key="frame" x="16" y="199" width="382" height="32"/>
+                                <segments>
+                                    <segment title="Buy"/>
+                                    <segment title="Sell"/>
+                                </segments>
+                                <connections>
+                                    <action selector="tradeTypeControl:" destination="VUi-hP-Qi3" eventType="valueChanged" id="1td-w3-rOy"/>
+                                </connections>
+                            </segmentedControl>
                             <datePicker contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="hYQ-oL-OlF">
-                                <rect key="frame" x="16" y="399" width="382" height="51"/>
+                                <rect key="frame" x="16" y="446" width="382" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="51" id="4hx-w8-GgO"/>
                                 </constraints>
                             </datePicker>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Fees" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aRk-CQ-3PP">
-                                <rect key="frame" x="16" y="349" width="382" height="34"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ihi-0t-H0x"/>
                         <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
@@ -540,13 +550,16 @@
                             <constraint firstItem="ihi-0t-H0x" firstAttribute="trailing" secondItem="0k6-0s-xeL" secondAttribute="trailing" constant="16" id="ADk-R7-qNt"/>
                             <constraint firstItem="NLc-QR-Yul" firstAttribute="leading" secondItem="ihi-0t-H0x" secondAttribute="leading" constant="16" id="I21-Dr-Eri"/>
                             <constraint firstItem="hYQ-oL-OlF" firstAttribute="top" secondItem="aRk-CQ-3PP" secondAttribute="bottom" constant="16" id="Mdi-rW-AA4"/>
-                            <constraint firstItem="NLc-QR-Yul" firstAttribute="top" secondItem="opR-a8-yY7" secondAttribute="bottom" constant="32" id="MzK-cr-XWp"/>
                             <constraint firstItem="0k6-0s-xeL" firstAttribute="leading" secondItem="ihi-0t-H0x" secondAttribute="leading" constant="16" id="NV7-x8-uOL"/>
+                            <constraint firstItem="NLc-QR-Yul" firstAttribute="top" secondItem="7pB-uM-Bv8" secondAttribute="bottom" constant="16" id="PeS-Jo-ve7"/>
                             <constraint firstItem="ihi-0t-H0x" firstAttribute="trailing" secondItem="oT0-WM-Xsx" secondAttribute="trailing" constant="16" id="TuB-Mn-IkO"/>
+                            <constraint firstItem="7pB-uM-Bv8" firstAttribute="leading" secondItem="ihi-0t-H0x" secondAttribute="leading" constant="16" id="Wuz-IE-aCI"/>
                             <constraint firstItem="opR-a8-yY7" firstAttribute="leading" secondItem="ihi-0t-H0x" secondAttribute="leading" constant="16" id="Zj8-Jw-fP3"/>
+                            <constraint firstItem="7pB-uM-Bv8" firstAttribute="top" secondItem="opR-a8-yY7" secondAttribute="bottom" constant="32" id="bKl-1y-DwE"/>
                             <constraint firstItem="aRk-CQ-3PP" firstAttribute="leading" secondItem="ihi-0t-H0x" secondAttribute="leading" constant="16" id="dHF-xe-yMu"/>
                             <constraint firstItem="ihi-0t-H0x" firstAttribute="trailing" secondItem="aRk-CQ-3PP" secondAttribute="trailing" constant="16" id="dqu-2S-BYw"/>
                             <constraint firstItem="oT0-WM-Xsx" firstAttribute="leading" secondItem="ihi-0t-H0x" secondAttribute="leading" constant="16" id="g7c-6O-6Qh"/>
+                            <constraint firstItem="ihi-0t-H0x" firstAttribute="trailing" secondItem="7pB-uM-Bv8" secondAttribute="trailing" constant="16" id="g94-Da-dYs"/>
                             <constraint firstItem="aRk-CQ-3PP" firstAttribute="top" secondItem="oT0-WM-Xsx" secondAttribute="bottom" constant="16" id="gUU-s4-CRq"/>
                             <constraint firstItem="oT0-WM-Xsx" firstAttribute="top" secondItem="0k6-0s-xeL" secondAttribute="bottom" constant="16" id="rlv-Az-rwd"/>
                             <constraint firstItem="opR-a8-yY7" firstAttribute="top" secondItem="ihi-0t-H0x" secondAttribute="top" constant="45" id="z5U-IN-Oa8"/>
@@ -565,6 +578,7 @@
                         <outlet property="tradePriceField" destination="oT0-WM-Xsx" id="6G7-mE-T18"/>
                         <outlet property="tradeQuantityField" destination="0k6-0s-xeL" id="276-69-2XE"/>
                         <outlet property="tradeTickerField" destination="NLc-QR-Yul" id="tqw-BV-XCg"/>
+                        <outlet property="tradeTypeField" destination="7pB-uM-Bv8" id="ZzT-Gj-lcE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W6G-Hk-RNE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -719,7 +733,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GHb-Ja-Ekl">
-                                <rect key="frame" x="16" y="198.5" width="382" height="103"/>
+                                <rect key="frame" x="16" y="210" width="382" height="103"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="F0k-y1-K4j">
                                         <rect key="frame" x="16" y="16" width="350" height="36"/>
@@ -756,6 +770,12 @@
                                     <constraint firstAttribute="trailing" secondItem="F0k-y1-K4j" secondAttribute="trailing" constant="16" id="zZs-f4-1el"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Buy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KKs-dU-yFm">
+                                <rect key="frame" x="16" y="174.5" width="382" height="19.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iMV-bO-5pP"/>
                         <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
@@ -764,7 +784,10 @@
                             <constraint firstItem="2Sk-Ga-f8E" firstAttribute="leading" secondItem="iMV-bO-5pP" secondAttribute="leading" constant="16" id="8bd-7e-zSN"/>
                             <constraint firstItem="2Sk-Ga-f8E" firstAttribute="top" secondItem="iMV-bO-5pP" secondAttribute="top" constant="45" id="976-zC-DYk"/>
                             <constraint firstItem="iMV-bO-5pP" firstAttribute="trailing" secondItem="GHb-Ja-Ekl" secondAttribute="trailing" constant="16" id="MiF-LY-6n9"/>
-                            <constraint firstItem="GHb-Ja-Ekl" firstAttribute="top" secondItem="2Sk-Ga-f8E" secondAttribute="bottom" constant="32" id="sQz-C9-IbQ"/>
+                            <constraint firstItem="KKs-dU-yFm" firstAttribute="top" secondItem="2Sk-Ga-f8E" secondAttribute="bottom" constant="8" id="O2B-bt-V4W"/>
+                            <constraint firstItem="KKs-dU-yFm" firstAttribute="leading" secondItem="iMV-bO-5pP" secondAttribute="leading" constant="16" id="Qiq-aA-SL8"/>
+                            <constraint firstItem="GHb-Ja-Ekl" firstAttribute="top" secondItem="KKs-dU-yFm" secondAttribute="bottom" constant="16" id="aL0-gK-xk4"/>
+                            <constraint firstItem="iMV-bO-5pP" firstAttribute="trailing" secondItem="KKs-dU-yFm" secondAttribute="trailing" constant="16" id="s2q-M8-bVD"/>
                             <constraint firstItem="GHb-Ja-Ekl" firstAttribute="leading" secondItem="iMV-bO-5pP" secondAttribute="leading" constant="16" id="uyE-0X-uEw"/>
                         </constraints>
                     </view>
@@ -781,6 +804,7 @@
                         <outlet property="tradePriceLabel" destination="QQd-fm-FEN" id="r6n-g6-gz3"/>
                         <outlet property="tradeQuantityLabel" destination="xYK-M7-Dji" id="ejk-Pj-sJV"/>
                         <outlet property="tradeTickerLabel" destination="2Sk-Ga-f8E" id="Ods-0Y-y0Z"/>
+                        <outlet property="tradeTypeLabel" destination="KKs-dU-yFm" id="Cef-Ve-IZw"/>
                         <segue destination="VUi-hP-Qi3" kind="show" identifier="editTradeSegue" id="j9Y-Y9-QDp"/>
                     </connections>
                 </viewController>
@@ -829,7 +853,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="W7y-Rv-DPL"/>
-        <segue reference="dOh-7u-Fti"/>
+        <segue reference="j9Y-Y9-QDp"/>
         <segue reference="Bvt-w0-x0h"/>
     </inferredMetricsTieBreakers>
     <resources>
