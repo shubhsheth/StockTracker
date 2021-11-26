@@ -22,3 +22,12 @@ class Trade: Codable {
     var account: Int = 0
     var fees: Double = 0.0
 }
+
+class Funding: Codable {
+    var id: Int = 1
+    var account: Int = 1
+    var type: String = ""
+    var date: String = ""
+    var amount: Double = 0.0
+    var fees: Double = 0.0
+}

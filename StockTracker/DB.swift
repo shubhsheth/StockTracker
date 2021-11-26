@@ -35,7 +35,7 @@ class DB {
     func createTable() {
         
         // Trades Table
-        let queryTrades = "CREATE TABLE IF NOT EXISTS trades(id INTEGER PRIMARY KEY AUTOINCREMENT, date DATE, ticker TEXT, price DECIMAL(5,2), quantity DECIMAL(5,4), type TEXT, account TEXT, fees DECIMAL(5,2))"
+        let queryTrades = "CREATE TABLE IF NOT EXISTS trades(id INTEGER PRIMARY KEY AUTOINCREMENT, date DATE, ticker TEXT, price DECIMAL(5,2), quantity DECIMAL(5,4), type TEXT, account INTEGER, fees DECIMAL(5,2))"
         var createTradesTable: OpaquePointer? = nil
         
         if sqlite3_prepare_v2(self.db, queryTrades, -1, &createTradesTable, nil) == SQLITE_OK {
@@ -57,6 +57,22 @@ class DB {
         if sqlite3_prepare_v2(self.db, queryAccounts, -1, &createAccountsTable, nil) == SQLITE_OK {
             if sqlite3_step(createAccountsTable) == SQLITE_DONE {
                 print("Accounts Table Created")
+            } else {
+                print("Error Creating Table")
+                return
+            }
+        } else {
+            print("Error Preparing Table")
+            return
+        }
+        
+        // Funding Table
+        let queryFundings = "CREATE TABLE IF NOT EXISTS fundings(id INTEGER PRIMARY KEY AUTOINCREMENT, date DATE, amount DECIMAL(5,2), type TEXT, account INTEGER, fees DECIMAL(5,2))"
+        var createFundingsTable: OpaquePointer? = nil
+        
+        if sqlite3_prepare_v2(self.db, queryFundings, -1, &createFundingsTable, nil) == SQLITE_OK {
+            if sqlite3_step(createFundingsTable) == SQLITE_DONE {
+                print("Fundings Table Created")
             } else {
                 print("Error Creating Table")
                 return
@@ -344,6 +360,95 @@ class DB {
         }
         
         return trade
-    
     }
+    
+    // MARK: - Funding
+    func insertFunding(date:String, amount:Double, type:String, account:Int, fees:Double) {
+        let query = "INSERT INTO fundings (id, date, amount, type, account, fees) VALUES (?, ?, ?, ?, ?, ?)"
+        var statement:OpaquePointer? = nil
+        print("Add Trade for \(Int32(account))")
+        var isEmpty = false
+        if getTrades().isEmpty {
+            isEmpty = true
+        }
+        
+        if sqlite3_prepare_v2(self.db, query, -1, &statement, nil) == SQLITE_OK {
+            if isEmpty {
+                sqlite3_bind_int(statement,1, 1)
+            }
+            sqlite3_bind_text(statement, 2, (date as NSString).utf8String, -1, nil)
+            sqlite3_bind_double(statement, 3, amount)
+            sqlite3_bind_text(statement, 4, (type as NSString).utf8String, -1, nil)
+            sqlite3_bind_int(statement, 5, Int32(account))
+            sqlite3_bind_double(statement, 6, fees)
+            
+            if sqlite3_step(statement) == SQLITE_DONE {
+                print("Funding Created")
+            } else {
+                print("Funding Creation Failed")
+            }
+            
+        } else {
+            print("Query Prep Failed")
+        }
+    }
+    
+    func getFundings() -> [Funding] {
+        
+        print("Fundings Sent")
+        var list = [Funding]()
+
+        let query = "SELECT * FROM fundings;"
+        var statement:OpaquePointer? = nil
+
+        if sqlite3_prepare_v2(self.db, query, -1, &statement, nil) == SQLITE_OK {
+
+            while sqlite3_step(statement) == SQLITE_ROW {
+                let model = Funding()
+                model.id = Int(sqlite3_column_int(statement, 0))
+                model.date = String(describing: String(cString: sqlite3_column_text(statement, 1)))
+                model.amount = Double(sqlite3_column_double(statement, 2))
+                model.type = String(describing: String(cString: sqlite3_column_text(statement, 3)))
+                model.account = Int(sqlite3_column_int(statement, 4))
+                model.fees = Double(sqlite3_column_double(statement, 5))
+                
+                list.append(model)
+            }
+            
+        } else {
+            print("Query Prep Failed")
+        }
+        
+        return list
+    }
+    
+    func getFundingsByAccount(account:Int) -> [Funding] {
+        
+        print("Fundings Sent By Account \(account)")
+        var list = [Funding]()
+
+        let query = "SELECT * FROM fundings WHERE account=?;"
+        var statement:OpaquePointer? = nil
+
+        if sqlite3_prepare_v2(self.db, query, -1, &statement, nil) == SQLITE_OK {
+            sqlite3_bind_int(statement,1, Int32(account))
+
+            while sqlite3_step(statement) == SQLITE_ROW {
+                let model = Funding()
+                model.id = Int(sqlite3_column_int(statement, 0))
+                model.date = String(describing: String(cString: sqlite3_column_text(statement, 1)))
+                model.amount = Double(sqlite3_column_double(statement, 2))
+                model.type = String(describing: String(cString: sqlite3_column_text(statement, 3)))
+                model.account = Int(sqlite3_column_int(statement, 4))
+                model.fees = Double(sqlite3_column_double(statement, 5))
+                
+                list.append(model)
+            }
+            
+        } else {
+            print("Query Prep Failed")
+        }
+        return list
+    }
+    
 }

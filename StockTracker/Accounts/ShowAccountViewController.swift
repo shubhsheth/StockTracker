@@ -17,12 +17,8 @@ class ShowAccountViewController: UIViewController, UITableViewDelegate, UITableV
     @IBAction func optionsAccount(_ sender: Any) {
         let alert = UIAlertController(title: self.name, message: "", preferredStyle: .actionSheet)
         
-        alert.addAction(UIAlertAction(title: "Deposit", style: .default , handler:{ (UIAlertAction)in
-            print("User click Approve button")
-        }))
-        
-        alert.addAction(UIAlertAction(title: "Withdraw", style: .default , handler:{ (UIAlertAction)in
-            print("User click Edit button")
+        alert.addAction(UIAlertAction(title: "Deposit / Withdraw", style: .default , handler:{ (UIAlertAction)in
+            self.goToFunding()
         }))
         
         alert.addAction(UIAlertAction(title: "Edit", style: .default , handler:{ (UIAlertAction)in
@@ -42,6 +38,7 @@ class ShowAccountViewController: UIViewController, UITableViewDelegate, UITableV
     
     @IBOutlet weak var totalValueView: UIView!
     @IBOutlet weak var accountName: UILabel!
+    @IBOutlet weak var accountTotalValue: UILabel!
     
     @IBOutlet weak var tradesView: UITableView!
     
@@ -55,6 +52,8 @@ class ShowAccountViewController: UIViewController, UITableViewDelegate, UITableV
         accountName.text = self.name
         
         self.tradesView.reloadData()
+        
+        updateTotalValue()
     }
     
     override func viewDidLoad() {
@@ -71,6 +70,8 @@ class ShowAccountViewController: UIViewController, UITableViewDelegate, UITableV
         tradesView.dataSource = self
         tradesView.tableFooterView = UIView()
         
+        // Calculations
+        updateTotalValue()
     }
     
     func editAccount() {
@@ -80,6 +81,10 @@ class ShowAccountViewController: UIViewController, UITableViewDelegate, UITableV
     func closeAccount() {
         database.db.deleteAccount(id: self.id)
         _ = navigationController?.popViewController(animated: true)
+    }
+    
+    func goToFunding() {
+        performSegue(withIdentifier: "createAccountFundingSegue", sender: self)
     }
     
     // MARK: - Navigation
@@ -105,6 +110,11 @@ class ShowAccountViewController: UIViewController, UITableViewDelegate, UITableV
             detailsView.type = selectedTrade.type
             detailsView.account = selectedTrade.account
             detailsView.fees = selectedTrade.fees
+        }
+        
+        if segue.identifier == "createAccountFundingSegue" {
+            let fundingView = segue.destination as! EditFundingViewController
+            fundingView.account = self.id
         }
     }
     
@@ -132,5 +142,17 @@ class ShowAccountViewController: UIViewController, UITableViewDelegate, UITableV
         performSegue(withIdentifier: "createAccountTradeSegue", sender: self)
     }
     
-    
+    func updateTotalValue() {
+        var total:Double = 0.00
+        let fundings = database.db.getFundingsByAccount(account: self.id)
+        for funding in fundings {
+            if funding.type == "Deposit" {
+                total += funding.amount
+            } else {
+                total -= funding.amount
+            }
+        }
+        
+        accountTotalValue.text = "$\(total)"
+    }
 }

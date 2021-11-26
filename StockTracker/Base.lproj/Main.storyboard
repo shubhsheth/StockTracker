@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -32,7 +33,7 @@
                                         <color key="textColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="0.59673344689999996" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$122.12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ays-xD-Tmm">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ays-xD-Tmm">
                                         <rect key="frame" x="16" y="51" width="350" height="36"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                         <nil key="textColor"/>
@@ -113,11 +114,13 @@
                     </navigationItem>
                     <connections>
                         <outlet property="accountName" destination="8yB-kW-dHa" id="FdE-gC-mcO"/>
+                        <outlet property="accountTotalValue" destination="ays-xD-Tmm" id="cXN-BR-dOX"/>
                         <outlet property="totalValueView" destination="uMi-yA-MJI" id="94G-Lj-A8P"/>
                         <outlet property="tradesView" destination="IyP-gC-vlc" id="Fa6-6I-sBx"/>
                         <segue destination="xtR-dR-02p" kind="show" identifier="editAccountSegue" id="Bvt-w0-x0h"/>
                         <segue destination="OnZ-nF-eYE" kind="show" identifier="showAccountTradeSegue" id="W7y-Rv-DPL"/>
                         <segue destination="VUi-hP-Qi3" kind="show" identifier="createAccountTradeSegue" id="dOh-7u-Fti"/>
+                        <segue destination="hTI-Rb-ioo" kind="show" identifier="createAccountFundingSegue" id="Tod-Xi-fzl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zKd-J7-54o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -568,20 +571,106 @@
             </objects>
             <point key="canvasLocation" x="-1923" y="2472"/>
         </scene>
-        <!--View Controller-->
+        <!--Edit Funding View Controller-->
         <scene sceneID="Ah6-C9-LVg">
             <objects>
-                <viewController id="hTI-Rb-ioo" sceneMemberID="viewController">
+                <viewController id="hTI-Rb-ioo" customClass="EditFundingViewController" customModule="StockTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fQQ-26-Rql">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Funding" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GAf-hE-jfr">
+                                <rect key="frame" x="16" y="133" width="382" height="33.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Td9-k2-2N0">
+                                <rect key="frame" x="16" y="245.5" width="382" height="34"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Fees" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YDw-Fx-xsa">
+                                <rect key="frame" x="16" y="295.5" width="382" height="34"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="sV6-tB-jFE">
+                                <rect key="frame" x="16" y="198.5" width="382" height="32"/>
+                                <segments>
+                                    <segment title="Deposit"/>
+                                    <segment title="Withdraw"/>
+                                </segments>
+                                <connections>
+                                    <action selector="fundingTypeControl:" destination="hTI-Rb-ioo" eventType="valueChanged" id="Tf5-Ya-4ut"/>
+                                </connections>
+                            </segmentedControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BC0-Rg-4vs">
+                                <rect key="frame" x="16" y="345.5" width="382" height="55"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="9Df-M2-UcB">
+                                        <rect key="frame" x="10" y="0.0" width="356" height="55"/>
+                                        <subviews>
+                                            <datePicker contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="U4n-0f-cmy">
+                                                <rect key="frame" x="0.0" y="0.0" width="179" height="55"/>
+                                            </datePicker>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Funding Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K8x-uS-pN8">
+                                                <rect key="frame" x="259.5" y="0.0" width="96.5" height="55"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <constraints>
+                                    <constraint firstItem="9Df-M2-UcB" firstAttribute="leading" secondItem="BC0-Rg-4vs" secondAttribute="leading" constant="10" id="CS8-hj-3Ot"/>
+                                    <constraint firstAttribute="trailing" secondItem="9Df-M2-UcB" secondAttribute="trailing" constant="16" id="E8h-9D-j3H"/>
+                                    <constraint firstItem="9Df-M2-UcB" firstAttribute="top" secondItem="BC0-Rg-4vs" secondAttribute="top" id="XCf-rb-7jO"/>
+                                    <constraint firstAttribute="height" constant="55" id="o1f-iv-WTc"/>
+                                    <constraint firstAttribute="bottom" secondItem="9Df-M2-UcB" secondAttribute="bottom" id="uc6-U3-3aI"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="9Wj-c7-Xhg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Td9-k2-2N0" firstAttribute="top" secondItem="sV6-tB-jFE" secondAttribute="bottom" constant="16" id="237-nA-AiQ"/>
+                            <constraint firstItem="YDw-Fx-xsa" firstAttribute="leading" secondItem="9Wj-c7-Xhg" secondAttribute="leading" constant="16" id="9pQ-Fy-K8Z"/>
+                            <constraint firstItem="BC0-Rg-4vs" firstAttribute="top" secondItem="YDw-Fx-xsa" secondAttribute="bottom" constant="16" id="Klv-AV-VrE"/>
+                            <constraint firstItem="9Wj-c7-Xhg" firstAttribute="trailing" secondItem="Td9-k2-2N0" secondAttribute="trailing" constant="16" id="PuS-dI-soI"/>
+                            <constraint firstItem="GAf-hE-jfr" firstAttribute="top" secondItem="9Wj-c7-Xhg" secondAttribute="top" constant="45" id="ViB-cb-FHv"/>
+                            <constraint firstItem="GAf-hE-jfr" firstAttribute="leading" secondItem="9Wj-c7-Xhg" secondAttribute="leading" constant="16" id="ZWk-h6-NgZ"/>
+                            <constraint firstItem="YDw-Fx-xsa" firstAttribute="top" secondItem="Td9-k2-2N0" secondAttribute="bottom" constant="16" id="bZg-N6-7qq"/>
+                            <constraint firstItem="Td9-k2-2N0" firstAttribute="leading" secondItem="9Wj-c7-Xhg" secondAttribute="leading" constant="16" id="cDx-Ln-dv6"/>
+                            <constraint firstItem="sV6-tB-jFE" firstAttribute="leading" secondItem="9Wj-c7-Xhg" secondAttribute="leading" constant="16" id="lE5-s2-wHc"/>
+                            <constraint firstItem="BC0-Rg-4vs" firstAttribute="leading" secondItem="9Wj-c7-Xhg" secondAttribute="leading" constant="16" id="mMq-pA-4VC"/>
+                            <constraint firstItem="9Wj-c7-Xhg" firstAttribute="trailing" secondItem="YDw-Fx-xsa" secondAttribute="trailing" constant="16" id="nyF-Xy-xoZ"/>
+                            <constraint firstItem="9Wj-c7-Xhg" firstAttribute="trailing" secondItem="GAf-hE-jfr" secondAttribute="trailing" constant="16" id="qDL-Ma-H2L"/>
+                            <constraint firstItem="9Wj-c7-Xhg" firstAttribute="trailing" secondItem="sV6-tB-jFE" secondAttribute="trailing" constant="16" id="sLZ-Bl-jti"/>
+                            <constraint firstItem="sV6-tB-jFE" firstAttribute="top" secondItem="GAf-hE-jfr" secondAttribute="bottom" constant="32" id="uNg-ZR-0qa"/>
+                            <constraint firstItem="9Wj-c7-Xhg" firstAttribute="trailing" secondItem="BC0-Rg-4vs" secondAttribute="trailing" constant="16" id="udd-hk-p4g"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="PmT-gM-pfY">
+                        <barButtonItem key="rightBarButtonItem" title="Save" style="done" id="diD-Sz-YdW">
+                            <connections>
+                                <action selector="saveFundingButton:" destination="hTI-Rb-ioo" id="D93-uU-ZN5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="dateContainerView" destination="BC0-Rg-4vs" id="onP-sz-7oC"/>
+                        <outlet property="fundingAmountField" destination="Td9-k2-2N0" id="wJH-Ty-3oI"/>
+                        <outlet property="fundingDateField" destination="U4n-0f-cmy" id="EFw-3G-Zeb"/>
+                        <outlet property="fundingFeesField" destination="YDw-Fx-xsa" id="bcf-1m-3I1"/>
+                        <outlet property="fundingTypeField" destination="sV6-tB-jFE" id="bVH-4P-5pm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h1i-GR-ZBS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-946" y="2472"/>
+            <point key="canvasLocation" x="-946.37681159420299" y="2471.6517857142858"/>
         </scene>
         <!--Recent Trades-->
         <scene sceneID="aor-Dg-wK0">
@@ -754,6 +843,9 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
