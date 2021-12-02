@@ -146,13 +146,17 @@ class ShowAccountViewController: UIViewController, UITableViewDelegate, UITableV
     func updateTotalValue() {
         var totalAmount:Double = 0.00
         var stocks = [String:Int]()
+        var types = [String:Double]()
         
+        types["Cash"] = 0
         let fundings = database.db.getFundingsByAccount(account: self.id)
         for funding in fundings {
             if funding.type == "Deposit" {
                 totalAmount += funding.amount
+                types["Cash"]! += funding.amount
             } else {
                 totalAmount -= funding.amount
+                types["Cash"]! -= funding.amount
             }
         }
         
@@ -174,8 +178,12 @@ class ShowAccountViewController: UIViewController, UITableViewDelegate, UITableV
         }
         
         for stock in stocks {
-            API.getQuote(ticker: stock.key) { price in
+            API.getQuote(ticker: stock.key) { price, type in
                 totalAmount += (price * Double(stock.value))
+                if types[type] == nil {
+                    types[type] = 0.00
+                }
+                types[type]! += (price * Double(stock.value))
             }
         }
         

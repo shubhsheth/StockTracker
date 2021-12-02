@@ -362,17 +362,8 @@
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x5d-uo-aKV">
                                                 <rect key="frame" x="16" y="433" width="382" height="200"/>
-                                                <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VKB-fN-ZEL">
-                                                        <rect key="frame" x="0.0" y="0.0" width="382" height="200"/>
-                                                    </imageView>
-                                                </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="VKB-fN-ZEL" secondAttribute="bottom" id="C6P-WT-WfV"/>
-                                                    <constraint firstItem="VKB-fN-ZEL" firstAttribute="top" secondItem="x5d-uo-aKV" secondAttribute="top" id="PnP-jz-uYf"/>
-                                                    <constraint firstItem="VKB-fN-ZEL" firstAttribute="leading" secondItem="x5d-uo-aKV" secondAttribute="leading" id="dAN-Yw-Rsz"/>
-                                                    <constraint firstAttribute="trailing" secondItem="VKB-fN-ZEL" secondAttribute="trailing" id="kRy-Lv-V7F"/>
                                                     <constraint firstAttribute="height" constant="200" id="riy-MR-K4N"/>
                                                 </constraints>
                                             </view>

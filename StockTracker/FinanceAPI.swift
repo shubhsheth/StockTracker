@@ -21,7 +21,7 @@ struct RequestContainer: Decodable {
 
 class API {
     
-    static func getQuote(ticker: String, callback: ((_ price:Double) -> Void) ) {
+    static func getQuote(ticker: String, callback: ((_ price:Double,_ type:String) -> Void) ) {
         let url = URL(string: "https://query1.finance.yahoo.com/v7/finance/quote?lang=en-US&region=US&corsDomain=finance.yahoo.com&symbols=\(ticker)")
         
         var resultData = Quote(ticker: ticker, price: 0.00, type: "None")
@@ -46,7 +46,7 @@ class API {
             task.resume()
         }
         group.wait()
-        callback(resultData.price)
+        callback(resultData.price, resultData.type)
     }
     
     static private func decodeQuoteData(data: Data) -> RequestContainer? {
