@@ -76,6 +76,12 @@ class HomeViewController: UIViewController {
             }
         }
         
+        for stock in stocks {
+            API.getQuote(ticker: stock.key) { price in
+                totalAmount += (price * Double(stock.value))
+            }
+        }
+        
         totalHoldingsLabel.text = "$\(totalAmount)"
     }
 

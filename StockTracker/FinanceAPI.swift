@@ -21,27 +21,32 @@ struct RequestContainer: Decodable {
 
 class API {
     
-    static func getQuote(ticker: String) -> Double {
+    static func getQuote(ticker: String, callback: ((_ price:Double) -> Void) ) {
         let url = URL(string: "https://query1.finance.yahoo.com/v7/finance/quote?lang=en-US&region=US&corsDomain=finance.yahoo.com&symbols=\(ticker)")
         
         var resultData = Quote(ticker: ticker, price: 0.00, type: "None")
         
-        let task = URLSession.shared.dataTask(with: url!) {
-            (data, response, error) in
-            if let downloadedData = data {
-                if let decodedData = self.decodeQuoteData(data: downloadedData) {
-                    resultData.type = decodedData.quoteResponse.result[0].quoteType
-                    resultData.price = decodedData.quoteResponse.result[0].regularMarketPrice
-                    resultData.ticker = decodedData.quoteResponse.result[0].symbol
+        let group = DispatchGroup()
+        group.enter()
+        DispatchQueue.global().async {
+            let task = URLSession.shared.dataTask(with: url!) {
+                (data, response, error) in
+                if let downloadedData = data {
+                    if let decodedData = self.decodeQuoteData(data: downloadedData) {
+                        resultData.type = decodedData.quoteResponse.result[0].quoteType
+                        resultData.price = decodedData.quoteResponse.result[0].regularMarketPrice
+                        resultData.ticker = decodedData.quoteResponse.result[0].symbol
+                    }
+                    group.leave()
+                } else if let error=error {
+                    print(error.localizedDescription)
                 }
-            } else if let error=error {
-                print(error.localizedDescription)
             }
+            
+            task.resume()
         }
-        
-        task.resume()
-        
-        return resultData.price
+        group.wait()
+        callback(resultData.price)
     }
     
     static private func decodeQuoteData(data: Data) -> RequestContainer? {

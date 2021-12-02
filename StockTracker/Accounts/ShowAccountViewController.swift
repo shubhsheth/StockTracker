@@ -127,7 +127,6 @@ class ShowAccountViewController: UIViewController, UITableViewDelegate, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: "account-trade-cell", for: indexPath)
         let ticker = trades[indexPath.row].ticker
         cell.textLabel?.text = ticker
-        API.getQuote(ticker: ticker)
         return cell
     }
     
@@ -171,6 +170,12 @@ class ShowAccountViewController: UIViewController, UITableViewDelegate, UITableV
                 stocks[trade.ticker]! -= 1
                 totalAmount += (trade.price * trade.quantity)
                 totalAmount -= trade.fees
+            }
+        }
+        
+        for stock in stocks {
+            API.getQuote(ticker: stock.key) { price in
+                totalAmount += (price * Double(stock.value))
             }
         }
         
