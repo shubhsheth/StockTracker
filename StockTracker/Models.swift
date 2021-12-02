@@ -31,3 +31,9 @@ class Funding: Codable {
     var amount: Double = 0.0
     var fees: Double = 0.0
 }
+
+struct Quote: Codable {
+    var ticker: String
+    var price: Double
+    var type: String
+}

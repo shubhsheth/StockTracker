@@ -125,7 +125,9 @@ class ShowAccountViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "account-trade-cell", for: indexPath)
-        cell.textLabel?.text = trades[indexPath.row].ticker
+        let ticker = trades[indexPath.row].ticker
+        cell.textLabel?.text = ticker
+        API.getQuote(ticker: ticker)
         return cell
     }
     

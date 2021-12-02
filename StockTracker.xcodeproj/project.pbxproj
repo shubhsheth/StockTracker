@@ -18,6 +18,7 @@
 		3F56FB97272B209000C7967B /* db.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 3F56FB96272B209000C7967B /* db.sqlite */; };
 		3FA0DACD274F61A1007DD127 /* OptionsAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0DACC274F61A1007DD127 /* OptionsAccountViewController.swift */; };
 		3FA0DAD027502977007DD127 /* EditFundingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0DACF27502977007DD127 /* EditFundingViewController.swift */; };
+		3FA0DAD227588478007DD127 /* FinanceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0DAD127588478007DD127 /* FinanceAPI.swift */; };
 		3FB45E35271934DC009326DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB45E34271934DC009326DF /* AppDelegate.swift */; };
 		3FB45E37271934DC009326DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB45E36271934DC009326DF /* SceneDelegate.swift */; };
 		3FB45E39271934DC009326DF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB45E38271934DC009326DF /* ViewController.swift */; };
@@ -38,6 +39,7 @@
 		3F56FB96272B209000C7967B /* db.sqlite */ = {isa = PBXFileReference; lastKnownFileType = text; path = db.sqlite; sourceTree = "<group>"; };
 		3FA0DACC274F61A1007DD127 /* OptionsAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsAccountViewController.swift; sourceTree = "<group>"; };
 		3FA0DACF27502977007DD127 /* EditFundingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFundingViewController.swift; sourceTree = "<group>"; };
+		3FA0DAD127588478007DD127 /* FinanceAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceAPI.swift; sourceTree = "<group>"; };
 		3FB45E31271934DC009326DF /* StockTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StockTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FB45E34271934DC009326DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FB45E36271934DC009326DF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				3F56FB82272A72AB00C7967B /* AccountsTableViewController.swift */,
 				3F56FB84272A72BD00C7967B /* TradesTableViewController.swift */,
 				3F56FB91272B048300C7967B /* DB.swift */,
+				3FA0DAD127588478007DD127 /* FinanceAPI.swift */,
 				3F56FB93272B04E400C7967B /* Models.swift */,
 			);
 			path = StockTracker;
@@ -212,6 +215,7 @@
 				3F56FB8C272A7AB700C7967B /* ShowTradeViewController.swift in Sources */,
 				3F56FB8E272A7AC800C7967B /* EditAccountViewController.swift in Sources */,
 				3F56FB90272A7AD600C7967B /* ShowAccountViewController.swift in Sources */,
+				3FA0DAD227588478007DD127 /* FinanceAPI.swift in Sources */,
 				3FB45E37271934DC009326DF /* SceneDelegate.swift in Sources */,
 				3FA0DACD274F61A1007DD127 /* OptionsAccountViewController.swift in Sources */,
 				3F56FB85272A72BD00C7967B /* TradesTableViewController.swift in Sources */,
