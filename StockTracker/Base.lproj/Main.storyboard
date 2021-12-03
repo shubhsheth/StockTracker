@@ -224,7 +224,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5qr-G1-mOe">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1250"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1371"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dashboard" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fT6-Tw-feg">
                                                 <rect key="frame" x="16" y="45" width="382" height="33.5"/>
@@ -376,12 +376,22 @@
                                                 </constraints>
                                             </view>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="btK-FV-Bn4">
-                                                <rect key="frame" x="16" y="982" width="382" height="128"/>
+                                                <rect key="frame" x="16" y="982" width="382" height="249"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="128" id="9po-Tn-27p"/>
+                                                    <constraint firstAttribute="height" constant="249" id="9po-Tn-27p"/>
                                                 </constraints>
                                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <prototypes>
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="latest-trade-cell" id="ciB-fe-2EJ">
+                                                        <rect key="frame" x="0.0" y="24.5" width="382" height="43.5"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ciB-fe-2EJ" id="8G3-jF-siH">
+                                                            <rect key="frame" x="0.0" y="0.0" width="382" height="43.5"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                        </tableViewCellContentView>
+                                                    </tableViewCell>
+                                                </prototypes>
                                             </tableView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latest Trades" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Tu-5M-o8S">
                                                 <rect key="frame" x="16" y="939.5" width="382" height="26.5"/>
@@ -456,6 +466,7 @@
                         <outlet property="totalGainsView" destination="rDV-8W-i4B" id="smH-OL-bW2"/>
                         <outlet property="totalHoldingsLabel" destination="0y6-Hd-iaT" id="prs-Bk-PRY"/>
                         <outlet property="totalHoldingsView" destination="kcV-Sm-z5N" id="ZUJ-Ct-jji"/>
+                        <segue destination="OnZ-nF-eYE" kind="show" identifier="showLatestTradeSegue" id="Z4i-FO-Jd7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="goi-fp-YNn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -715,17 +726,17 @@
             <objects>
                 <viewController id="OnZ-nF-eYE" customClass="ShowTradeViewController" customModule="StockTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UqB-w2-YhU">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AAPL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Sk-Ga-f8E">
-                                <rect key="frame" x="16" y="133" width="382" height="33.5"/>
+                                <rect key="frame" x="16" y="45" width="382" height="33.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GHb-Ja-Ekl">
-                                <rect key="frame" x="16" y="210" width="382" height="103"/>
+                                <rect key="frame" x="16" y="122" width="382" height="103"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="F0k-y1-K4j">
                                         <rect key="frame" x="16" y="16" width="350" height="36"/>
@@ -763,7 +774,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Buy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KKs-dU-yFm">
-                                <rect key="frame" x="16" y="174.5" width="382" height="19.5"/>
+                                <rect key="frame" x="16" y="86.5" width="382" height="19.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -844,8 +855,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="W7y-Rv-DPL"/>
-        <segue reference="j9Y-Y9-QDp"/>
+        <segue reference="Z4i-FO-Jd7"/>
+        <segue reference="dOh-7u-Fti"/>
         <segue reference="Bvt-w0-x0h"/>
     </inferredMetricsTieBreakers>
     <resources>
