@@ -8,6 +8,14 @@
 import UIKit
 import Charts
 
+
+extension Double {
+    func roundToDecimal(_ fractionDigits: Int) -> Double {
+        let multiplier = pow(10, Double(fractionDigits))
+        return Darwin.round(self * multiplier) / multiplier
+    }
+}
+
 struct database {
     static var db = DB()
 }
@@ -18,11 +26,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var totalHoldingsView: UIView!
     @IBOutlet weak var dayGainsView: UIView!
     @IBOutlet weak var totalGainsView: UIView!
-    @IBOutlet weak var dailyTrendView: UIView!
     @IBOutlet weak var portfolioBreakdownView: UIView!
     @IBOutlet weak var latestTradesView: UITableView!
     
     @IBOutlet weak var totalHoldingsLabel: UILabel!
+    @IBOutlet weak var dayGainsAmount: UILabel!
+    @IBOutlet weak var dayGainsPercent: UILabel!
+    @IBOutlet weak var weekGainsAmount: UILabel!
+    @IBOutlet weak var weekGainsPercent: UILabel!
+    
     
     lazy var pieChartView: PieChartView = {
         let chartView = PieChartView()
@@ -40,7 +52,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         pieChartView.data = data
         pieChartView.legend.enabled = true
         pieChartView.legend.orientation = .vertical
-        
     }
     
     override func viewDidLoad() {
@@ -51,17 +62,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         totalHoldingsView?.layer.cornerRadius = 13
         dayGainsView?.layer.cornerRadius = 13
         totalGainsView?.layer.cornerRadius = 13
-        dailyTrendView?.layer.cornerRadius = 13
         portfolioBreakdownView?.layer.cornerRadius = 13
         latestTradesView?.layer.cornerRadius = 13
         pieChartView.layer.cornerRadius = 13
-        pieChartView.frame.size.height = dailyTrendView.frame.size.height
-        pieChartView.frame.size.width = dailyTrendView.frame.size.width
+        pieChartView.frame.size.height = portfolioBreakdownView.frame.size.height
+        pieChartView.frame.size.width = portfolioBreakdownView.frame.size.width
         
         // Calculations
         calculateTotalHoldings()
         
-        dailyTrendView.addSubview(pieChartView)
         portfolioBreakdownView.addSubview(pieChartView)
         latestTradesView.delegate = self
         latestTradesView.dataSource = self
@@ -92,7 +101,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 types["Cash"]! -= funding.amount
             }
         }
-        
+        let totalFunding = totalAmount
         let trades = database.db.getTrades()
         for trade in trades {
             if !stocks.keys.contains(trade.ticker) {
@@ -120,6 +129,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         }
         
+        let totalGainsValue = totalAmount - totalFunding
+        let totalGainsPercentage = (totalGainsValue / totalFunding) * 100
+        
         yvalues = []
         for type in types {
             let v = type.value
@@ -129,9 +141,38 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         setData()
         
-        totalHoldingsLabel.text = "$\(totalAmount)"
-    }
+        let gains = database.db.getGains()
 
+        let currentDateTime = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let date = formatter.string(from: currentDateTime)
+        
+        var dailyGainsValue = totalGainsValue
+        var dailyGainsPercent = totalGainsPercentage
+        
+        if let yesterdaysGains = database.db.getYesterdaysGains() {
+            dailyGainsValue = totalGainsValue - yesterdaysGains.gain
+            dailyGainsPercent = totalGainsPercentage - yesterdaysGains.percent
+        } else {
+            database.db.insertGain(date: date, gain: dailyGainsValue, percent: dailyGainsPercent)
+        }
+        
+        var weeklyGainsValue = totalGainsValue
+        var weeklyGainsPercent = totalGainsPercentage
+        
+        if let lastWeeksGains = database.db.getLastWeeksGains() {
+            weeklyGainsValue = totalGainsValue - lastWeeksGains.gain
+            weeklyGainsPercent = totalGainsPercentage - lastWeeksGains.percent
+        }
+        
+        totalHoldingsLabel.text = "$\(totalAmount.roundToDecimal(2))"
+        
+        dayGainsAmount.text = "$\(dailyGainsValue.roundToDecimal(2))"
+        dayGainsPercent.text = "\(dailyGainsPercent.roundToDecimal(2))%"
+        weekGainsAmount.text = "$\(weeklyGainsValue.roundToDecimal(2))"
+        weekGainsPercent.text = "\(weeklyGainsPercent.roundToDecimal(2))%"
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return trades.count

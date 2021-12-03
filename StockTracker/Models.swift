@@ -37,3 +37,10 @@ struct Quote: Codable {
     var price: Double
     var type: String
 }
+
+class Gain: Codable {
+    var id: Int = 1
+    var date: String = ""
+    var gain: Double = 0.0
+    var percent: Double = 0.0
+}

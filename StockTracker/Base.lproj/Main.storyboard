@@ -224,7 +224,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5qr-G1-mOe">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1371"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1096.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dashboard" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fT6-Tw-feg">
                                                 <rect key="frame" x="16" y="45" width="382" height="33.5"/>
@@ -310,7 +310,7 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Day's Gains" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNX-Jq-MVL">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Weeks's Gains" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNX-Jq-MVL">
                                                                 <rect key="frame" x="16" y="16" width="151" height="19"/>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                                 <color key="textColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="0.59673344689999996" colorSpace="calibratedRGB"/>
@@ -342,17 +342,8 @@
                                                     <constraint firstAttribute="height" constant="115" id="MCF-oZ-G3p"/>
                                                 </constraints>
                                             </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily Trend" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D7I-tX-ag0">
-                                                <rect key="frame" x="16" y="390.5" width="382" height="26.5"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="26.5" id="5a2-nS-1Kc"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Portfolio Breakdown" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xsu-oH-Df9">
-                                                <rect key="frame" x="16" y="665" width="382" height="26.5"/>
+                                                <rect key="frame" x="16" y="390.5" width="382" height="26.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="26.5" id="YYd-Mh-Bbg"/>
                                                 </constraints>
@@ -360,15 +351,8 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x5d-uo-aKV">
-                                                <rect key="frame" x="16" y="433" width="382" height="200"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="200" id="riy-MR-K4N"/>
-                                                </constraints>
-                                            </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5pG-3t-yB5">
-                                                <rect key="frame" x="16" y="707.5" width="382" height="200"/>
+                                                <rect key="frame" x="16" y="433" width="382" height="200"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="5YD-hY-Fwh"/>
@@ -376,7 +360,7 @@
                                                 </constraints>
                                             </view>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="btK-FV-Bn4">
-                                                <rect key="frame" x="16" y="982" width="382" height="249"/>
+                                                <rect key="frame" x="16" y="707.5" width="382" height="249"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="249" id="9po-Tn-27p"/>
@@ -394,7 +378,7 @@
                                                 </prototypes>
                                             </tableView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latest Trades" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Tu-5M-o8S">
-                                                <rect key="frame" x="16" y="939.5" width="382" height="26.5"/>
+                                                <rect key="frame" x="16" y="665" width="382" height="26.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="26.5" id="5r1-ig-rZr"/>
                                                     <constraint firstAttribute="height" constant="26.5" id="Yfb-lB-nHf"/>
@@ -410,12 +394,9 @@
                                             <constraint firstItem="fT6-Tw-feg" firstAttribute="leading" secondItem="5qr-G1-mOe" secondAttribute="leading" constant="16" id="8a8-mh-oLQ"/>
                                             <constraint firstItem="kcV-Sm-z5N" firstAttribute="leading" secondItem="5qr-G1-mOe" secondAttribute="leading" constant="16" id="8dc-4y-qka"/>
                                             <constraint firstItem="sgX-SJ-Xks" firstAttribute="leading" secondItem="5qr-G1-mOe" secondAttribute="leading" constant="16" id="8wW-IX-wqg"/>
-                                            <constraint firstItem="x5d-uo-aKV" firstAttribute="top" secondItem="D7I-tX-ag0" secondAttribute="bottom" constant="16" id="FAE-EX-2dO"/>
-                                            <constraint firstItem="x5d-uo-aKV" firstAttribute="leading" secondItem="5qr-G1-mOe" secondAttribute="leading" constant="16" id="GGb-Ww-Fyw"/>
-                                            <constraint firstItem="xsu-oH-Df9" firstAttribute="top" secondItem="x5d-uo-aKV" secondAttribute="bottom" constant="32" id="NMc-BG-4W9"/>
+                                            <constraint firstItem="xsu-oH-Df9" firstAttribute="top" secondItem="sgX-SJ-Xks" secondAttribute="bottom" constant="32" id="Od4-za-MPe"/>
                                             <constraint firstAttribute="trailing" secondItem="5pG-3t-yB5" secondAttribute="trailing" constant="16" id="P4H-gH-3ej"/>
                                             <constraint firstItem="fT6-Tw-feg" firstAttribute="top" secondItem="5qr-G1-mOe" secondAttribute="top" constant="45" id="Qf0-fd-HuQ"/>
-                                            <constraint firstItem="D7I-tX-ag0" firstAttribute="top" secondItem="sgX-SJ-Xks" secondAttribute="bottom" constant="32" id="R7d-5K-Ge8"/>
                                             <constraint firstAttribute="trailing" secondItem="xsu-oH-Df9" secondAttribute="trailing" constant="16" id="Tcd-iN-e8P"/>
                                             <constraint firstItem="sgX-SJ-Xks" firstAttribute="top" secondItem="kcV-Sm-z5N" secondAttribute="bottom" constant="16" id="VH1-n4-wiV"/>
                                             <constraint firstAttribute="trailing" secondItem="fT6-Tw-feg" secondAttribute="trailing" constant="16" id="W0R-dp-wQg"/>
@@ -423,12 +404,9 @@
                                             <constraint firstItem="xsu-oH-Df9" firstAttribute="leading" secondItem="5qr-G1-mOe" secondAttribute="leading" constant="16" id="Yqb-oq-4Nm"/>
                                             <constraint firstItem="5pG-3t-yB5" firstAttribute="leading" secondItem="5qr-G1-mOe" secondAttribute="leading" constant="16" id="YsD-IT-J47"/>
                                             <constraint firstItem="1Tu-5M-o8S" firstAttribute="top" secondItem="5pG-3t-yB5" secondAttribute="bottom" constant="32" id="bOn-cj-GdD"/>
-                                            <constraint firstItem="D7I-tX-ag0" firstAttribute="leading" secondItem="5qr-G1-mOe" secondAttribute="leading" constant="16" id="d6S-bd-LJo"/>
                                             <constraint firstItem="btK-FV-Bn4" firstAttribute="top" secondItem="1Tu-5M-o8S" secondAttribute="bottom" constant="16" id="evM-zu-RKG"/>
                                             <constraint firstAttribute="bottom" secondItem="btK-FV-Bn4" secondAttribute="bottom" constant="140" id="fd1-jd-bki"/>
-                                            <constraint firstAttribute="trailing" secondItem="x5d-uo-aKV" secondAttribute="trailing" constant="16" id="hxQ-ce-tbF"/>
                                             <constraint firstAttribute="trailing" secondItem="kcV-Sm-z5N" secondAttribute="trailing" constant="16" id="hxq-9T-vZT"/>
-                                            <constraint firstAttribute="trailing" secondItem="D7I-tX-ag0" secondAttribute="trailing" constant="16" id="jb3-Wm-CLb"/>
                                             <constraint firstItem="5pG-3t-yB5" firstAttribute="top" secondItem="xsu-oH-Df9" secondAttribute="bottom" constant="16" id="lJY-WZ-8EO"/>
                                             <constraint firstAttribute="trailing" secondItem="sgX-SJ-Xks" secondAttribute="trailing" constant="16" id="pIs-rf-xAB"/>
                                             <constraint firstAttribute="trailing" secondItem="btK-FV-Bn4" secondAttribute="trailing" constant="16" id="qRl-jI-jky"/>
@@ -459,13 +437,16 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="kUx-1u-NMm"/>
                     <connections>
-                        <outlet property="dailyTrendView" destination="x5d-uo-aKV" id="1sX-tc-wAm"/>
+                        <outlet property="dayGainsAmount" destination="GyH-C4-TTz" id="tbN-2T-ohq"/>
+                        <outlet property="dayGainsPercent" destination="Jwn-eq-fof" id="3P8-ds-300"/>
                         <outlet property="dayGainsView" destination="5QN-4Y-7Xs" id="UXC-HV-KhB"/>
                         <outlet property="latestTradesView" destination="btK-FV-Bn4" id="ifF-va-qF1"/>
                         <outlet property="portfolioBreakdownView" destination="5pG-3t-yB5" id="nZI-Mz-hCr"/>
                         <outlet property="totalGainsView" destination="rDV-8W-i4B" id="smH-OL-bW2"/>
                         <outlet property="totalHoldingsLabel" destination="0y6-Hd-iaT" id="prs-Bk-PRY"/>
                         <outlet property="totalHoldingsView" destination="kcV-Sm-z5N" id="ZUJ-Ct-jji"/>
+                        <outlet property="weekGainsAmount" destination="egx-op-tUG" id="Y9E-dQ-tO8"/>
+                        <outlet property="weekGainsPercent" destination="rri-f0-ORL" id="sQL-A0-gPd"/>
                         <segue destination="OnZ-nF-eYE" kind="show" identifier="showLatestTradeSegue" id="Z4i-FO-Jd7"/>
                     </connections>
                 </viewController>

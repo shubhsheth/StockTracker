@@ -81,6 +81,22 @@ class DB {
             print("Error Preparing Table")
             return
         }
+        
+        // Daily Gains Table
+        let queryGains = "CREATE TABLE IF NOT EXISTS gains(id INTEGER PRIMARY KEY AUTOINCREMENT, date DATE, gain DECIMAL(5,2), percent DECIMAL(5,2))"
+        var createGainsTable: OpaquePointer? = nil
+        
+        if sqlite3_prepare_v2(self.db, queryGains, -1, &createGainsTable, nil) == SQLITE_OK {
+            if sqlite3_step(createGainsTable) == SQLITE_DONE {
+                print("Gains Table Created")
+            } else {
+                print("Error Creating Table")
+                return
+            }
+        } else {
+            print("Error Preparing Table")
+            return
+        }
     }
     // MARK: - Accounts
     func insertAccount(name:String) {
@@ -368,7 +384,7 @@ class DB {
         var statement:OpaquePointer? = nil
         print("Add Trade for \(Int32(account))")
         var isEmpty = false
-        if getTrades().isEmpty {
+        if getFundings().isEmpty {
             isEmpty = true
         }
         
@@ -450,5 +466,154 @@ class DB {
         }
         return list
     }
+    
+    // MARK: - Gains
+    func insertGain(date:String, gain:Double, percent:Double) {
+        let query = "INSERT INTO gains (id, date, gain, percent) VALUES (?, ?, ?, ?)"
+        var statement:OpaquePointer? = nil
+        var isEmpty = false
+        let gains = getGains()
+        print(gains)
+        if gains.isEmpty {
+            isEmpty = true
+        } else {
+            if date == gains[0].date {
+                // update gain
+                updateGain(date: date, gain: gain, percent: percent)
+                return
+            }
+        }
+        
+        if sqlite3_prepare_v2(self.db, query, -1, &statement, nil) == SQLITE_OK {
+            if isEmpty {
+                sqlite3_bind_int(statement,1, 1)
+            }
+            sqlite3_bind_text(statement, 2, (date as NSString).utf8String, -1, nil)
+            sqlite3_bind_double(statement, 3, gain)
+            sqlite3_bind_double(statement, 4, percent)
+            
+            if sqlite3_step(statement) == SQLITE_DONE {
+                print("Gain Created")
+            } else {
+                print("Gain Creation Failed")
+            }
+            
+        } else {
+            print("Query Prep Failed")
+        }
+    }
+    
+    func getGains() -> [Gain] {
+        
+        print("Gains Sent")
+        var list = [Gain]()
+
+        let query = "SELECT * FROM gains;"
+        var statement:OpaquePointer? = nil
+
+        if sqlite3_prepare_v2(self.db, query, -1, &statement, nil) == SQLITE_OK {
+
+            while sqlite3_step(statement) == SQLITE_ROW {
+                let model = Gain()
+                model.id = Int(sqlite3_column_int(statement, 0))
+                model.date = String(describing: String(cString: sqlite3_column_text(statement, 1)))
+                model.gain = Double(sqlite3_column_double(statement, 2))
+                model.percent = Double(sqlite3_column_double(statement, 3))
+                
+                list.append(model)
+            }
+            
+        } else {
+            print("Query Prep Failed")
+        }
+        
+        return list
+    }
+    
+    func updateGain(date:String, gain:Double, percent:Double) {
+        
+        let query = "UPDATE gains SET gain=?,percent=? WHERE date=?;"
+        var statement:OpaquePointer? = nil
+        
+        if sqlite3_prepare_v2(self.db, query, -1, &statement, nil) == SQLITE_OK {
+            sqlite3_bind_double(statement, 1, gain)
+            sqlite3_bind_double(statement, 2, percent)
+            sqlite3_bind_text(statement, 3, (date as NSString).utf8String, -1, nil)
+            
+            if sqlite3_step(statement) == SQLITE_DONE {
+                print("Gain Updated")
+            } else {
+                print("Gain Updating Failed")
+            }
+            
+        } else {
+            print("Query Prep Failed")
+        }
+    }
+    
+    func getYesterdaysGains() -> Gain? {
+        
+        print("Gains Sent")
+        var list = [Gain]()
+
+        let query = "SELECT * FROM gains;"
+        var statement:OpaquePointer? = nil
+
+        if sqlite3_prepare_v2(self.db, query, -1, &statement, nil) == SQLITE_OK {
+
+            while sqlite3_step(statement) == SQLITE_ROW {
+                let model = Gain()
+                model.id = Int(sqlite3_column_int(statement, 0))
+                model.date = String(describing: String(cString: sqlite3_column_text(statement, 1)))
+                model.gain = Double(sqlite3_column_double(statement, 2))
+                model.percent = Double(sqlite3_column_double(statement, 3))
+                
+                list.append(model)
+            }
+            
+        } else {
+            print("Query Prep Failed")
+        }
+        
+        if list.count > 1 {
+            return list[1]
+        } else {
+            return nil
+        }
+    }
+    
+    func getLastWeeksGains() -> Gain? {
+        
+        print("Gains Sent")
+        var list = [Gain]()
+
+        let query = "SELECT * FROM gains;"
+        var statement:OpaquePointer? = nil
+
+        if sqlite3_prepare_v2(self.db, query, -1, &statement, nil) == SQLITE_OK {
+
+            while sqlite3_step(statement) == SQLITE_ROW {
+                let model = Gain()
+                model.id = Int(sqlite3_column_int(statement, 0))
+                model.date = String(describing: String(cString: sqlite3_column_text(statement, 1)))
+                model.gain = Double(sqlite3_column_double(statement, 2))
+                model.percent = Double(sqlite3_column_double(statement, 3))
+                
+                list.append(model)
+            }
+            
+        } else {
+            print("Query Prep Failed")
+        }
+        
+        if list.count > 7 {
+            return list[6]
+        } else {
+            return nil
+        }
+    }
+    
+    
+    
     
 }
